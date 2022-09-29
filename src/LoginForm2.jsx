@@ -36,12 +36,12 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
     localStorage.setItem("Password", PasswordDetails);
   }
 
-//   function setloginstatusfunc() {
-//     // Signup.setSignUpstate("true");
-//     if (name != admin.Admin.name && password != admin.Admin.password) {
-//       console.log("Wrong User Details");
-//     }
-//   }
+  //   function setloginstatusfunc() {
+  //     // Signup.setSignUpstate("true");
+  //     if (name != admin.Admin.name && password != admin.Admin.password) {
+  //       console.log("Wrong User Details");
+  //     }
+  //   }
 
   return (
     <>
@@ -56,7 +56,10 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                   <div className="col-lg-6">
                     <div className="card-body p-md-5 mx-md-4">
                       <div className="text-center">
-                        <img className="mx-auto" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" />
+                        <img
+                          className="mx-auto"
+                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                        />
                         {/* <style="width: 185px;" alt="logo"> */}
                         <h4 className="mt-1 mb-10 text-xl pb-1">
                           Welcome to Schooly
@@ -125,10 +128,11 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                   <div className="col-lg-6 d-flex align-items-center rounded-lg bg-gradient-to-r from-[#ee7724] to-[#b44593]">
                     <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h4 className="mb-4 text-2xl">
-                        Secure, stateless student details manager
+                        Secure, anonymous, stateless password manager
                       </h4>
                       <p className="small mb-0">
-                        We do not use cookies, tracking scripts or any third party in browser software.
+                        We do not use cookies, tracking scripts or any third
+                        party in browser software.
                       </p>
                     </div>
                   </div>

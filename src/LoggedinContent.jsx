@@ -257,7 +257,7 @@ export default function Login({ username }) {
                     Welcome back, {username}
                   </h1>
                   <h2 class="text-md mt-2 text-gray-400">
-                    View and Manage your details
+                    View and Manage your passwords
                   </h2>
                   <div class="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
                     <div class="w-full md:w-6/12">
@@ -266,7 +266,7 @@ export default function Login({ username }) {
                           <div class="flex items-center bg-purple-600 rounded-xl justify-between px-4 py-6 space-x-4">
                             <div class="flex items-center rounded-xl">
                               <p class="text-xl bg-purple-600 text-gray-700 dark:text-white ml-2 font-semibold">
-                                Upcoming Exam : Periodic Test 2
+                                Generate new password
                               </p>
                             </div>
                           </div>
@@ -284,7 +284,7 @@ export default function Login({ username }) {
                             <p class="text-2xl text-black dark:text-white font-bold">
                               2
                             </p>
-                            <p class="text-white text-sm">Assignments active</p>
+                            <p class="text-white text-sm">Safe</p>
                           </button>
 
                           <div class="hidden rounded-xl peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
@@ -316,7 +316,7 @@ export default function Login({ username }) {
                             <p class="text-2xl text-black dark:text-white font-bold">
                               3
                             </p>
-                            <p class="text-white text-sm">Events active</p>
+                            <p class="text-white text-sm">Compromised</p>
                           </button>
 
                           <div class="hidden rounded-xl peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
@@ -397,18 +397,6 @@ export default function Login({ username }) {
                         </div>
                       </div>
                     </div>
-                    <div class="w-full">
-                      <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
-                        <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                          Periodic Test - 2
-                        </p>
-                        <div class="flex items-end space-x-2 my-6">
-                          <p class="text-5xl text-black dark:text-white font-bold">
-                            15 Oct
-                          </p>
-                        </div>
-                      </div>
-                    </div>
                     {eventData.map((eventData1) => {
                       return (
                         <>
@@ -432,7 +420,7 @@ export default function Login({ username }) {
                         <p class="text-xl text-black">
                           <input
                             className="w-11/12 bg-gray-200 rounded-lg p-2"
-                            placeholder="Data"
+                            placeholder="Account identifier"
                             type="text"
                             onChange={(event) => {
                               setnotice2(event.target.value);
@@ -443,7 +431,7 @@ export default function Login({ username }) {
                         <p class="text-xl mt-3 mb-6 text-black">
                           <input
                             className="w-11/12 bg-gray-200 rounded-lg p-2"
-                            placeholder="Date"
+                            placeholder="Password"
                             type="text"
                             onChange={(event) => {
                               setdate2(event.target.value);
