@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PasswordGenerator from "./PasswordGenerator";
 // import LoginForm from "./LoginForm";
 // import LoginForm2 from "./LoginForm2";
 // import SignUp from "./SignUp";
@@ -42,6 +43,9 @@ export default function Login({ username }) {
     }
   }, [eventData]);
 
+  // Password generator visibility
+  const [generator_visibility, setgenerator_visibility] = useState("hidden");
+
   return (
     <>
       <div>
@@ -55,7 +59,9 @@ export default function Login({ username }) {
               <div class="h-screen hidden lg:block shadow-lg relative w-80">
                 <div class="bg-white h-full dark:bg-gray-700">
                   <div class="flex items-center justify-start pt-6 ml-8">
-                    <p class="font-bold dark:text-white text-3xl">Schooly</p>
+                    <p class="font-bold dark:text-white text-3xl">
+                      PersonalPass
+                    </p>
                   </div>
                   <nav class="mt-6">
                     <div>
@@ -74,7 +80,14 @@ export default function Login({ username }) {
                             <path d="M1472 992v480q0 26-19 45t-45 19h-384v-384h-256v384h-384q-26 0-45-19t-19-45v-480q0-1 .5-3t.5-3l575-474 575 474q1 2 1 6zm223-69l-62 74q-8 9-21 11h-3q-13 0-21-7l-692-577-692 577q-12 8-24 7-13-2-21-11l-62-74q-8-10-7-23.5t11-21.5l719-599q32-26 76-26t76 26l244 204v-195q0-14 9-23t23-9h192q14 0 23 9t9 23v408l219 182q10 8 11 21.5t-7 23.5z"></path>
                           </svg>
                         </span>
-                        <span class="mx-2 text-sm font-normal">Home</span>
+                        <span
+                          onClick={() => {
+                            setgenerator_visibility("hidden");
+                          }}
+                          class="mx-2 text-sm font-normal"
+                        >
+                          Home
+                        </span>
                       </a>
                       <a
                         class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
@@ -91,11 +104,13 @@ export default function Login({ username }) {
                             <path d="M1070 1178l306-564h-654l-306 564h654zm722-282q0 182-71 348t-191 286-286 191-348 71-348-71-286-191-191-286-71-348 71-348 191-286 286-191 348-71 348 71 286 191 191 286 71 348z"></path>
                           </svg>
                         </span>
-                        <span class="mx-2 text-sm font-normal">
-                          Exam zone
-                          <span class="p-1 ml-4 rounded-lg w-4 h-2 bg-gray-200 text-gray-400 text-xs">
-                            0
-                          </span>
+                        <span
+                          class="mx-2 text-sm font-normal"
+                          onClick={() => {
+                            setgenerator_visibility("");
+                          }}
+                        >
+                          Password Generator
                         </span>
                       </a>
                       <a
@@ -252,7 +267,11 @@ export default function Login({ username }) {
                     </div>
                   </div>
                 </header>
-                <div class="overflow-auto h-screen pb-24 px-4 md:px-6">
+                <div
+                  class={`${
+                    generator_visibility == "hidden" ? "" : "hidden"
+                  } overflow-auto h-screen pb-24 px-4 md:px-6`}
+                >
                   <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
                     Welcome back, {username}
                   </h1>
@@ -265,7 +284,12 @@ export default function Login({ username }) {
                         <a href="#" class="w-full h-full block">
                           <div class="flex items-center bg-purple-600 rounded-xl justify-between px-4 py-6 space-x-4">
                             <div class="flex items-center rounded-xl">
-                              <p class="text-xl bg-purple-600 text-gray-700 dark:text-white ml-2 font-semibold">
+                              <p
+                                onClick={() => {
+                                  setgenerator_visibility("");
+                                }}
+                                class="text-xl bg-purple-600 text-gray-700 dark:text-white ml-2 font-semibold"
+                              >
                                 Generate new password
                               </p>
                             </div>
@@ -324,7 +348,7 @@ export default function Login({ username }) {
                               class="px-5 py-3 rounded-xl hover:bg-gray-200"
                               href="#"
                             >
-                              Codeissance
+                              Instagram
                             </a>
                             <a
                               class="px-5 py-3 rounded-xl hover:bg-gray-200"
@@ -376,11 +400,11 @@ export default function Login({ username }) {
                     <div class="w-full">
                       <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
                         <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                          Codeissance
+                          Instagram
                         </p>
                         <div class="flex items-end space-x-2 my-6">
                           <p class="text-5xl text-black dark:text-white font-bold">
-                            23 - 24 Sep
+                            xyz@123
                           </p>
                         </div>
                       </div>
@@ -388,11 +412,11 @@ export default function Login({ username }) {
                     <div class="w-full">
                       <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
                         <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                          Gandhi Jayanti
+                          facebook
                         </p>
                         <div class="flex items-end space-x-2 my-6">
                           <p class="text-5xl text-black dark:text-white font-bold">
-                            02 Oct
+                            xyz@123
                           </p>
                         </div>
                       </div>
@@ -449,10 +473,53 @@ export default function Login({ username }) {
                     </div>
                   </div>
                 </div>
+                {/* // */}
+                {/* // Password Generator */}
+                {/* <div>
+                    <div className="text-center my-5 text-4xl text-white font-bold mx-auto">
+                      Generate strong and random passwords
+                    </div>
+                  </div>
+                  <div className="text-center my-5 md:mx-60 text-white font-bold mx-auto">
+                    Upgrade the security of your online accounts - create strong
+                    passwords that are completely random and impossible to
+                    guess. Select the length of your new password, choose what
+                    symbols to include and copy your password easily!
+                  </div>
+                  <div class="w-full">
+                    <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
+                      <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
+                        facebook
+                      </p>
+                      <div class="flex items-end space-x-2 my-6">
+                        <p class="text-5xl text-black dark:text-white font-bold">
+                          xyz@123
+                        </p>
+                        <div>
+                          <button className="bg-purple-600 text-white rounded-lg px-3 py-2">
+                            Copy Password
+                          </button>
+                        </div>
+                      </div>
+                      <div class="flex items-end space-x-2 my-6 text-white">
+                        <div className="block w-full ">Password strength : </div>
+                        <div className="block w-full ">Password length : </div>
+                      </div>
+                    </div>
+                  </div> */}
+                <div className={`${generator_visibility}`}>
+                  <PasswordGenerator />
+                </div>
+                {/* // End  */}
               </div>
             </div>
           </main>
         </div>
+
+        {/* // Password Generator */}
+        {/* <div>
+          <div>Generate strong and random passwords</div>
+        </div> */}
 
         {/* // OLD SECTION  */}
         {/* <div className="relative mt-28 bg-white w-full h-[585px] overflow-hidden text-left text-[35px] text-black font-inter">
