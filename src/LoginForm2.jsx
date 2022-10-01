@@ -62,20 +62,20 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                         />
                         {/* <style="width: 185px;" alt="logo"> */}
                         <h4 className="mt-1 mb-10 text-xl pb-1">
-                          Welcome to Schooly
+                          Welcome to PersonalPass
                         </h4>
                       </div>
 
                       <form>
                         <p className="text-2xl my-3">
-                          Please login to your account (Student)
+                          Please login to your account
                         </p>
 
                         <div className="form-outline my-4">
                           <input
                             type="name"
                             id="form2Example11"
-                            className="form-control mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724] "
+                            className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724] "
                             placeholder="Username"
                             onChange={(e) => {
                               setnameDetails(e.target.value);
@@ -87,7 +87,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                           <input
                             type="password"
                             id="form2Example22"
-                            className="form-control mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724]"
+                            className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724]"
                             placeholder="Password"
                             onChange={(e) => {
                               setpasswordDetails(e.target.value);
@@ -98,9 +98,20 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                         {/* Error */}
                         <div className="hidden">Error</div>
 
-                        <div className="text-center pt-1 mb-5 pb-1">
+                        <div class="flex items-center gap-8">
+                          <label class="inline-flex mx-auto items-center">
+                            <input
+                              type="radio"
+                              name="vehicle"
+                              class="h-5 w-5 text-red-600"
+                            />
+                            <span class="ml-2 text-gray-700">I am not a ROBOT</span>
+                          </label>
+                        </div>
+
+                        <div className="text-center pt-1 my-5 pb-1">
                           <button
-                            className="block fa-lg bg-gradient-to-r from-[#ee7724] to-[#b44593] px-4 py-2 rounded-lg text-white mx-auto mb-3"
+                            className="block drop-shadow-xl fa-lg bg-gradient-to-r from-[#ee7724] to-[#b44593] px-4 py-2 rounded-lg text-white mx-auto mb-3"
                             type="button"
                             onClick={() => {
                               login.setLogin("true");

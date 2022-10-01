@@ -1,18 +1,18 @@
 import React from "react";
 
-export default function ManagerPage1() {
+export default function ManagerPage1({ myRef, executeScroll }) {
   return (
     <>
       {/* <div className="bg-red-600">ManagerPage1</div> */}
       {/* Navbar  */}
-      
+
       {/* Upper Part */}
-      <section className="text-gray-600 body-font">
+      <section className="text-gray-600 bg-gray-200 body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-5xl text-5xl mb-4 font-bold text-gray-900">
+            <h1 className="title-font text-5xl mb-4 font-bold text-gray-900">
               We lock passwords.
-              <br className="hidden lg:inline-block" />
+              <br className="inline-block" />
               You hold the key.
             </h1>
             <p className="mb-8 leading-relaxed">
@@ -21,11 +21,11 @@ export default function ManagerPage1() {
               login credentials on any device, even when you’re offline.
             </p>
             <div className="flex justify-center">
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                Button
+              <button onClick={executeScroll} className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-green-200 rounded-lg text-lg">
+                Get Personal Plan
               </button>
-              <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                Button
+              <button onClick={executeScroll} className="ml-4 inline-flex text-white  bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded-lg text-lg">
+                Get Premium Plan
               </button>
             </div>
           </div>
@@ -69,14 +69,14 @@ export default function ManagerPage1() {
               </div>
               <div class="flex-grow">
                 <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
-                  Shooting Stars
+                  Access login credentials anywhere, anytime
                 </h2>
                 <p class="leading-relaxed text-base">
-                  Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                  taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                  banh mi pug VHS try-hard.
+                  There are situations in life when you need your passwords here
+                  and now. That’s why PersonalPass is created to always be at
+                  hand. Use it on desktop, mobile, browser, or even when you’re
+                  offline.
                 </p>
-                
               </div>
             </div>
             <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
@@ -105,7 +105,6 @@ export default function ManagerPage1() {
                   golden cryptology standards to fresh algorithms poised to
                   become the future of internet encryption.
                 </p>
-                
               </div>
             </div>
             <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
@@ -128,11 +127,10 @@ export default function ManagerPage1() {
                   Your passwords are in good hands
                 </h2>
                 <p class="leading-relaxed text-base">
-                  Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                  taxidermy. Gastropub indxgo juice poutine, ramps microdosing
-                  banh mi pug VHS try-hard.
+                  Keep your private data to yourself. Our strong password
+                  generator will help you take your first step towards safer
+                  online accounts shielded by more robust passwords.
                 </p>
-                
               </div>
             </div>
           </div>
@@ -167,22 +165,14 @@ export default function ManagerPage1() {
                   <h2 class="text-sm title-font text-gray-500 tracking-widest">
                     MULTIPLE DEVICES
                   </h2>
-                  <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+                  <h1 class="text-gray-900 mb-8 font-bold text-3xl title-font">
                     Access passwords on any device
                   </h1>
                   <p class="leading-relaxed">
-                    With PersonalPass, your passwords will always be at a close at
-                    hand, even when you’re offline. Your data is synced
+                    With PersonalPass, your passwords will always be at a close
+                    at hand, even when you’re offline. Your data is synced
                     automatically across all your devices and browsers.
                   </p>
-                  <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">
-                      $58.00
-                    </span>
-                    <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                      Button
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -194,7 +184,7 @@ export default function ManagerPage1() {
                   <h2 class="text-sm title-font text-gray-500 tracking-widest">
                     DATA BREACH SCANNER
                   </h2>
-                  <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">
+                  <h1 class="text-gray-900 text-3xl title-font font-bold mb-8">
                     Take charge of your passwords safety
                   </h1>
                   <p class="leading-relaxed mb-4">
@@ -202,14 +192,6 @@ export default function ManagerPage1() {
                     data breaches with Data Breach Scanner. Change vulnerable
                     passwords immediately to prevent cyber attacks.
                   </p>
-                  <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">
-                      $58.00
-                    </span>
-                    <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                      Button
-                    </button>
-                  </div>
                 </div>
                 <img
                   alt="ecommerce"
@@ -231,7 +213,7 @@ export default function ManagerPage1() {
                   <h2 class="text-sm title-font text-gray-500 tracking-widest">
                     PASSWORD GENERATOR
                   </h2>
-                  <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+                  <h1 class="text-gray-900 text-3xl title-font font-bold mb-8">
                     Create complex and custom passwords
                   </h1>
                   <p class="leading-relaxed">
@@ -239,23 +221,438 @@ export default function ManagerPage1() {
                     the PersonalPass Password Generator to create hard-to-crack
                     passwords.
                   </p>
-                  <div class="flex">
-                    <span class="title-font font-medium text-2xl text-gray-900">
-                      $58.00
-                    </span>
-                    <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                      Button
-                    </button>
-                    
-                  </div>
                 </div>
               </div>
             </div>
           </section>
-          <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">
-            Button
-          </button>
         </div>
+        {/* // Pricing Section Premium */}
+        <section class="text-gray-600 body-font overflow-hidden">
+          <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-20">
+              <h1
+                ref={myRef}
+                class="sm:text-4xl text-3xl font-bold title-font mb-2 text-black"
+              >
+                Get more with PersonalPass Premium
+              </h1>
+              <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-gray-700">
+                Compare plans and features
+              </p>
+              <div class="flex mx-auto border-2 border-red-500 rounded overflow-hidden mt-6">
+                <button class="py-1 px-4 bg-red-500 text-white focus:outline-none">
+                  Monthly
+                </button>
+                <button class="py-1 px-4 focus:outline-none">Annually</button>
+              </div>
+            </div>
+            <div class="flex flex-wrap -m-4">
+              <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                  <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
+                    BASIC
+                  </h2>
+                  <h1 class="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">
+                    Free
+                  </h1>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    No credit card required
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    1 User account
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-6">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Securely store passwords
+                  </p>
+                  <button class="flex font-bold items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg">
+                    Get Started
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-auto"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                  <p class="text-xs text-gray-500 mt-3">Try now !</p>
+                </div>
+              </div>
+              <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden">
+                  <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">
+                    EARLY BIRD OFFER
+                  </span>
+                  <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
+                    PREMIUM
+                  </h2>
+                  <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+                    <span>₹79</span>
+                    <span class="text-lg ml-1 font-normal text-gray-500">
+                      /mo
+                    </span>
+                  </h1>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    30-day money-back guarantee
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Generate complex and custom passwords
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    1 Premium user account
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Detect weak, reused passwords
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-6">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Securely store passwords
+                  </p>
+                  <button class="flex font-bold items-center mt-auto text-white bg-red-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-red-600 rounded-lg">
+                    Get Premium Plan
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-auto"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                  <p class="text-xs text-gray-500 mt-3">Try now !</p>
+                </div>
+              </div>
+              <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                  <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
+                    FAMILY
+                  </h2>
+                  <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+                    <span>₹189</span>
+                    <span class="text-lg ml-1 font-normal text-gray-500">
+                      /mo
+                    </span>
+                  </h1>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    30-day money-back guarantee
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Generate complex and custom passwords
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    5 Premium user account
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Detect weak, reused passwords
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-6">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Securely store passwords
+                  </p>
+                  <button class="flex font-bold items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg">
+                    Get Family Plan
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-auto"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                  <p class="text-xs text-gray-500 mt-3">Try now !</p>
+                </div>
+              </div>
+              {/* <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
+                <div class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                  <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
+                    SPECIAL
+                  </h2>
+                  <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
+                    <span>$72</span>
+                    <span class="text-lg ml-1 font-normal text-gray-500">
+                      /mo
+                    </span>
+                  </h1>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    30-day money-back guarantee
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    1 Premium user account
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Detect weak, reused passwords
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-2">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    30-day money-back guarantee
+                  </p>
+                  <p class="flex items-center text-gray-600 mb-6">
+                    <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        class="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Securely store passwords
+                  </p>
+                  <button class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg">
+                    Button
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-auto"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                  <p class="text-xs text-gray-500 mt-3">
+                    Try now !
+                  </p>
+                </div>
+              </div> */}
+            </div>
+          </div>
+        </section>
+        {/* // */}
       </section>
       {/* Footer  */}
       <footer class="text-gray-600 body-font">

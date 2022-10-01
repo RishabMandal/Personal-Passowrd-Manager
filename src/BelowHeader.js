@@ -1,7 +1,7 @@
 import React from "react";
 import ManagerPage1 from "./ManagerPage1";
 
-export default function BelowHeader() {
+export default function BelowHeader({myRef,executeScroll}) {
   return (
     <div>
       {/* <section className="text-gray-600 body-font">
@@ -114,7 +114,7 @@ export default function BelowHeader() {
         </div>
       </section> */}
 
-      <ManagerPage1 />
+      <ManagerPage1 myRef={myRef} executeScroll={executeScroll}/>
     </div>
   );
 }

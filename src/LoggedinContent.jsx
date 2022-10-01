@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PasswordGenerator from "./PasswordGenerator";
+import logo from "./Logo1.png";
+import PasswordStrengthMeter from "./PasswordStrengthMeter";
 // import LoginForm from "./LoginForm";
 // import LoginForm2 from "./LoginForm2";
 // import SignUp from "./SignUp";
@@ -30,21 +32,34 @@ export default function Login({ username }) {
     // localStorage.setItem("LOCAL", JSON.stringify(eventData));
   }
 
+  let a = JSON.parse(localStorage.getItem("LOCAL")) || [];
   useEffect(() => {
-    // setTimeout(() => {
-    seteventData(JSON.parse(localStorage.getItem("LOCAL")));
-    // }, 1000);
+    // seteventData(JSON.parse(localStorage.getItem("LOCAL")));
+    seteventData(a);
     console.log(JSON.parse(localStorage.getItem("LOCAL")));
   }, []);
 
   useEffect(() => {
-    if (eventData != []) {
-      localStorage.setItem("LOCAL", JSON.stringify(eventData));
-    }
+    // if (eventData != []) {
+    localStorage.setItem("LOCAL", JSON.stringify(eventData));
+    // }
   }, [eventData]);
 
   // Password generator visibility
   const [generator_visibility, setgenerator_visibility] = useState("hidden");
+
+  // Premium
+  const [premium, setpremium] = useState("GET PREMIUM");
+  useEffect(() => {
+    if (
+      username == "Rishab" ||
+      username == "Krish" ||
+      username == "Vivaan" ||
+      username == "Arnav"
+    ) {
+      setpremium("PREMIUM");
+    }
+  }, []);
 
   return (
     <>
@@ -58,10 +73,15 @@ export default function Login({ username }) {
             <div class="flex items-start justify-between">
               <div class="h-screen hidden lg:block shadow-lg relative w-80">
                 <div class="bg-white h-full dark:bg-gray-700">
-                  <div class="flex items-center justify-start pt-6 ml-8">
+                  <div class="flex items-center justify-start pt-6">
                     <p class="font-bold dark:text-white text-3xl">
-                      PersonalPass
+                      {/* PersonalPass */}
                     </p>
+                    <img
+                      src={logo}
+                      className="rounded-lg w-48 mx-auto"
+                      alt=""
+                    />
                   </div>
                   <nav class="mt-6">
                     <div>
@@ -110,7 +130,7 @@ export default function Login({ username }) {
                             setgenerator_visibility("");
                           }}
                         >
-                          Password Generator
+                          Password Generator (BETA)
                         </span>
                       </a>
                       <a
@@ -128,7 +148,9 @@ export default function Login({ username }) {
                             <path d="M1728 608v704q0 92-66 158t-158 66h-1216q-92 0-158-66t-66-158v-960q0-92 66-158t158-66h320q92 0 158 66t66 158v32h672q92 0 158 66t66 158z"></path>
                           </svg>
                         </span>
-                        <span class="mx-4 text-sm font-normal">Resources</span>
+                        <span class="mx-2 text-sm font-normal">
+                          Labs (Coming soon)
+                        </span>
                       </a>
                       <a
                         class="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
@@ -145,7 +167,9 @@ export default function Login({ username }) {
                             <path d="M580 461q0-41-25-66t-66-25q-43 0-76 25.5t-33 65.5q0 39 33 64.5t76 25.5q41 0 66-24.5t25-65.5zm743 507q0-28-25.5-50t-65.5-22q-27 0-49.5 22.5t-22.5 49.5q0 28 22.5 50.5t49.5 22.5q40 0 65.5-22t25.5-51zm-236-507q0-41-24.5-66t-65.5-25q-43 0-76 25.5t-33 65.5q0 39 33 64.5t76 25.5q41 0 65.5-24.5t24.5-65.5zm635 507q0-28-26-50t-65-22q-27 0-49.5 22.5t-22.5 49.5q0 28 22.5 50.5t49.5 22.5q39 0 65-22t26-51zm-266-397q-31-4-70-4-169 0-311 77t-223.5 208.5-81.5 287.5q0 78 23 152-35 3-68 3-26 0-50-1.5t-55-6.5-44.5-7-54.5-10.5-50-10.5l-253 127 72-218q-290-203-290-490 0-169 97.5-311t264-223.5 363.5-81.5q176 0 332.5 66t262 182.5 136.5 260.5zm592 561q0 117-68.5 223.5t-185.5 193.5l55 181-199-109q-150 37-218 37-169 0-311-70.5t-223.5-191.5-81.5-264 81.5-264 223.5-191.5 311-70.5q161 0 303 70.5t227.5 192 85.5 263.5z"></path>
                           </svg>
                         </span>
-                        <span class="mx-4 text-sm font-normal">Feedback</span>
+                        <span class="mx-2 text-sm font-normal">
+                          Feedback (Coming Soon)
+                        </span>
                       </a>
                     </div>
                   </nav>
@@ -192,6 +216,9 @@ export default function Login({ username }) {
                         >
                           <path d="M912 1696q0-16-16-16-59 0-101.5-42.5t-42.5-101.5q0-16-16-16t-16 16q0 73 51.5 124.5t124.5 51.5q16 0 16-16zm816-288q0 52-38 90t-90 38h-448q0 106-75 181t-181 75-181-75-75-181h-448q-52 0-90-38t-38-90q50-42 91-88t85-119.5 74.5-158.5 50-206 19.5-260q0-152 117-282.5t307-158.5q-8-19-8-39 0-40 28-68t68-28 68 28 28 68q0 20-8 39 190 28 307 158.5t117 282.5q0 139 19.5 260t50 206 74.5 158.5 85 119.5 91 88z"></path>
                         </svg>
+                      </button>
+                      <button class="flex py-2 px-3 items-center font-bold rounded-lg bg-green-600 shadow text-white hover:text-gray-700 text-md">
+                        {premium}
                       </button>
                       <span class="w-1 h-8 rounded-lg bg-gray-200"></span>
                       {/* <a href="#" class="block relative">
@@ -400,18 +427,6 @@ export default function Login({ username }) {
                     <div class="w-full">
                       <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
                         <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                          Instagram
-                        </p>
-                        <div class="flex items-end space-x-2 my-6">
-                          <p class="text-5xl text-black dark:text-white font-bold">
-                            xyz@123
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w-full">
-                      <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
-                        <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
                           facebook
                         </p>
                         <div class="flex items-end space-x-2 my-6">
@@ -434,6 +449,10 @@ export default function Login({ username }) {
                                   {eventData1.date}
                                 </p>
                               </div>
+
+                              <PasswordStrengthMeter
+                                password1={eventData1.date}
+                              />
                             </div>
                           </div>
                         </>
@@ -508,7 +527,7 @@ export default function Login({ username }) {
                     </div>
                   </div> */}
                 <div className={`${generator_visibility}`}>
-                  <PasswordGenerator />
+                  <PasswordGenerator username={username} />
                 </div>
                 {/* // End  */}
               </div>
