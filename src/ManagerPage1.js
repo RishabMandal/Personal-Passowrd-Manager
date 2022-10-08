@@ -1,9 +1,15 @@
 import React from "react";
+import premiumcrown from "./crown.png";
+import backgroundimg from "./backgroundimg.png";
+import Passgenerator from "./Passgenerator.svg";
+import accessanywhere from "./accessanywhere.png";
+import safety from "./safety.svg";
+import { motion } from "framer-motion";
 
 export default function ManagerPage1({ myRef, executeScroll }) {
   return (
     <>
-      {/* <div className="bg-red-600">ManagerPage1</div> */}
+      {/* <div className="bg-red-700">ManagerPage1</div> */}
       {/* Navbar  */}
 
       {/* Upper Part */}
@@ -21,11 +27,23 @@ export default function ManagerPage1({ myRef, executeScroll }) {
               login credentials on any device, even when you’re offline.
             </p>
             <div className="flex justify-center">
-              <button onClick={executeScroll} className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-green-200 rounded-lg text-lg">
+              <button
+                onClick={executeScroll}
+                className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-green-200 rounded-lg text-lg"
+              >
                 Get Personal Plan
               </button>
-              <button onClick={executeScroll} className="ml-4 inline-flex text-white  bg-green-600 border-0 py-2 px-6 focus:outline-none hover:bg-green-700 rounded-lg text-lg">
+              <button
+                onClick={executeScroll}
+                className="ml-4 inline-flex text-white  bg-green-700 border-0 py-2 px-6 focus:outline-none hover:bg-green-800 rounded-lg text-lg"
+              >
                 Get Premium Plan
+                <motion.img
+                  whileHover={{ rotate: 360, speed: 0.1 }}
+                  src={premiumcrown}
+                  className="ml-2 my-1 w-[25px] h-[25px]"
+                  alt=""
+                />
               </button>
             </div>
           </div>
@@ -33,7 +51,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src="https://dummyimage.com/720x600"
+              src={backgroundimg}
             />
           </div>
         </div>
@@ -49,11 +67,14 @@ export default function ManagerPage1({ myRef, executeScroll }) {
               Built with security in mind
             </p>
             <div class="flex mt-6 justify-center">
-              <div class="w-16 h-1 rounded-full bg-red-500 inline-flex"></div>
+              <div class="w-16 h-1 rounded-full bg-red-700 inline-flex"></div>
             </div>
           </div>
           <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              class="p-4 md:w-1/3 flex flex-col text-center items-center"
+            >
               <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-5 flex-shrink-0">
                 <svg
                   fill="none"
@@ -78,8 +99,11 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                   offline.
                 </p>
               </div>
-            </div>
-            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              class="p-4 md:w-1/3 flex flex-col text-center items-center"
+            >
               <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-5 flex-shrink-0">
                 <svg
                   fill="none"
@@ -106,8 +130,11 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                   become the future of internet encryption.
                 </p>
               </div>
-            </div>
-            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              class="p-4 md:w-1/3 flex flex-col text-center items-center"
+            >
               <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-red-100 text-red-500 mb-5 flex-shrink-0">
                 <svg
                   fill="none"
@@ -132,11 +159,8 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                   online accounts shielded by more robust passwords.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
-          <button class="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">
-            Button
-          </button>
         </div>
       </section>
       {/* Your passwords always at your hand  */}
@@ -150,18 +174,44 @@ export default function ManagerPage1({ myRef, executeScroll }) {
               Built with security in mind
             </p>
             <div class="flex mt-6 justify-center">
-              <div class="w-16 h-1 rounded-full bg-red-500 inline-flex"></div>
+              <div class="w-16 h-1 rounded-full bg-red-700 inline-flex"></div>
             </div>
           </div>
           <section class="text-gray-600 body-font overflow-hidden">
             <div class="container px-5 py-24 mx-auto">
               <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <img
+                <motion.img
+                  initial={{ x: "-100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: "-100%",
+                    opacity: 0,
+                    transition: { duration: 0, delay: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3,
+                    ease: "easeOut",
+                  }}
                   alt="ecommerce"
                   class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                  src="https://dummyimage.com/400x400"
+                  src={accessanywhere}
                 />
-                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                <motion.div
+                  initial={{ x: "100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: "100%",
+                    opacity: 0,
+                    transition: { duration: 0, delay: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.6,
+                    ease: "easeOut",
+                  }}
+                  class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0"
+                >
                   <h2 class="text-sm title-font text-gray-500 tracking-widest">
                     MULTIPLE DEVICES
                   </h2>
@@ -173,14 +223,28 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     at hand, even when you’re offline. Your data is synced
                     automatically across all your devices and browsers.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
           <section class="text-gray-600 body-font overflow-hidden">
             <div class="container px-5 py-24 mx-auto">
               <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <motion.div
+                  initial={{ x: "-100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: "-100%",
+                    opacity: 0,
+                    transition: { duration: 0, delay: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3,
+                    ease: "easeOut",
+                  }}
+                  class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0"
+                >
                   <h2 class="text-sm title-font text-gray-500 tracking-widest">
                     DATA BREACH SCANNER
                   </h2>
@@ -192,11 +256,23 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     data breaches with Data Breach Scanner. Change vulnerable
                     passwords immediately to prevent cyber attacks.
                   </p>
-                </div>
-                <img
+                </motion.div>
+                <motion.img
+                  initial={{ x: "100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: "100%",
+                    opacity: 0,
+                    transition: { duration: 0, delay: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.6,
+                    ease: "easeOut",
+                  }}
                   alt="ecommerce"
                   class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                  src="https://dummyimage.com/400x400"
+                  src={safety}
                 />
               </div>
             </div>
@@ -204,24 +280,56 @@ export default function ManagerPage1({ myRef, executeScroll }) {
           <section class="text-gray-600 body-font overflow-hidden">
             <div class="container px-5 py-24 mx-auto">
               <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <img
+                <motion.img
+                  initial={{ x: "-100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: "-100%",
+                    opacity: 0,
+                    transition: { duration: 0, delay: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3,
+                    ease: "easeOut",
+                  }}
                   alt="ecommerce"
                   class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                  src="https://dummyimage.com/400x400"
+                  src={Passgenerator}
                 />
-                <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 class="text-sm title-font text-gray-500 tracking-widest">
+                <motion.div
+                  initial={{ x: "100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  exit={{
+                    x: "100%",
+                    opacity: 0,
+                    transition: { duration: 0, delay: 0 },
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.6,
+                    ease: "easeOut",
+                  }}
+                  class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0"
+                >
+                  <h2 class="text-sm lg:mt-10 title-font text-gray-500 tracking-widest">
                     PASSWORD GENERATOR
                   </h2>
                   <h1 class="text-gray-900 text-3xl title-font font-bold mb-8">
                     Create complex and custom passwords
                   </h1>
-                  <p class="leading-relaxed">
+                  <div className="flex">
+                    <img src={premiumcrown} className="w-1/12 mx-2" alt="" />
+                    <p className="my-1 text-black font-semibold">
+                      ONLY WITH PREMIUM
+                    </p>
+                  </div>
+                  <p class="leading-relaxed mt-2">
                     When setting up new accounts or updating old passwords, use
                     the PersonalPass Password Generator to create hard-to-crack
                     passwords.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -240,7 +348,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                 Compare plans and features
               </p>
               <div class="flex mx-auto border-2 border-red-500 rounded overflow-hidden mt-6">
-                <button class="py-1 px-4 bg-red-500 text-white focus:outline-none">
+                <button class="py-1 px-4 bg-red-700 text-white focus:outline-none">
                   Monthly
                 </button>
                 <button class="py-1 px-4 focus:outline-none">Annually</button>
@@ -322,7 +430,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
               </div>
               <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
                 <div class="h-full p-6 rounded-lg border-2 border-red-500 flex flex-col relative overflow-hidden">
-                  <span class="bg-red-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">
+                  <span class="bg-red-700 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl">
                     EARLY BIRD OFFER
                   </span>
                   <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
@@ -414,7 +522,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     </span>
                     Securely store passwords
                   </p>
-                  <button class="flex font-bold items-center mt-auto text-white bg-red-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-red-600 rounded-lg">
+                  <button class="flex font-bold items-center mt-auto text-white bg-red-700 border-0 py-2 px-4 w-full focus:outline-none hover:bg-red-800 rounded-lg">
                     Get Premium Plan
                     <svg
                       fill="none"
@@ -665,7 +773,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              class="w-10 h-10 text-white p-2 bg-red-500 rounded-full"
+              class="w-10 h-10 text-white p-2 bg-red-700 rounded-full"
               viewBox="0 0 24 24"
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -675,7 +783,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
           <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
             © 2022 PersonalPass Security —
             <a
-              href="https://twitter.com/knyttneve"
+              href="https://github.com/RishabMandal"
               class="text-gray-600 ml-1"
               rel="noopener noreferrer"
               target="_blank"

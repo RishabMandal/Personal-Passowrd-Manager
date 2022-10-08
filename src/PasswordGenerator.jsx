@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ActualPasswordGen from "./ActualPasswordGen";
 
 export default function PasswordGenerator({ username }) {
   // Password generator visibility
@@ -17,7 +18,8 @@ export default function PasswordGenerator({ username }) {
   return (
     <>
       <div className={`${generator_visibility} mx-4`}>
-        <div className=" overflow-auto h-[1000px]">
+        {/* <div className=" overflow-auto h-[1000px]"> */}
+        <div className=" h-screen overflow-auto" >
           <div>
             <div className="text-center my-5 text-4xl text-white font-bold mx-auto">
               Generate strong and random passwords
@@ -29,7 +31,7 @@ export default function PasswordGenerator({ username }) {
             the length of your new password, choose what symbols to include and
             copy your password easily!
           </div>
-          <div class="w-full">
+          {/* <div class="w-full">
             <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
               <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
                 facebook
@@ -49,13 +51,15 @@ export default function PasswordGenerator({ username }) {
                 <div className="block w-full ">Password length : </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* // */}
 
+            <ActualPasswordGen/>
+
           {/* // */}
 
-          <div class="flex flex-col max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
+          {/* <div class="flex flex-col max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
             <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
               Create a new account
             </div>
@@ -196,7 +200,7 @@ export default function PasswordGenerator({ username }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div

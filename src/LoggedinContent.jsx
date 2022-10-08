@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PasswordGenerator from "./PasswordGenerator";
 import logo from "./Logo1.png";
+import deleteicon from "./delete.png";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
+import { motion } from "framer-motion";
 // import LoginForm from "./LoginForm";
 // import LoginForm2 from "./LoginForm2";
 // import SignUp from "./SignUp";
@@ -28,21 +30,21 @@ export default function Login({ username }) {
   const [date2, setdate2] = useState("");
 
   function setData() {
+    if (notice2 == "" || date2 == "") {
+      return;
+    }
     seteventData([...eventData, { notice: notice2, date: date2 }]);
     // localStorage.setItem("LOCAL", JSON.stringify(eventData));
   }
 
   let a = JSON.parse(localStorage.getItem("LOCAL")) || [];
   useEffect(() => {
-    // seteventData(JSON.parse(localStorage.getItem("LOCAL")));
     seteventData(a);
-    console.log(JSON.parse(localStorage.getItem("LOCAL")));
+    // console.log(JSON.parse(localStorage.getItem("LOCAL")));
   }, []);
 
   useEffect(() => {
-    // if (eventData != []) {
     localStorage.setItem("LOCAL", JSON.stringify(eventData));
-    // }
   }, [eventData]);
 
   // Password generator visibility
@@ -60,6 +62,13 @@ export default function Login({ username }) {
       setpremium("PREMIUM");
     }
   }, []);
+
+  // Delete passwords
+  const removeTodo = (index) => {
+    const newTodos = [...eventData];
+    newTodos.splice(index, 1);
+    seteventData(newTodos);
+  };
 
   return (
     <>
@@ -193,7 +202,7 @@ export default function Login({ username }) {
                   </div>
                   <div class="relative z-20 flex flex-col justify-end h-full px-3 md:w-full">
                     <div class="relative p-1 flex items-center w-full space-x-4 justify-end">
-                      <button class="flex p-2 items-center rounded-full text-gray-400 hover:text-gray-700 bg-white shadow text-md">
+                      {/* <button class="flex p-2 items-center rounded-full text-gray-400 hover:text-gray-700 bg-white shadow text-md">
                         <svg
                           width="20"
                           height="20"
@@ -204,8 +213,11 @@ export default function Login({ username }) {
                         >
                           <path d="M1520 1216q0-40-28-68l-208-208q-28-28-68-28-42 0-72 32 3 3 19 18.5t21.5 21.5 15 19 13 25.5 3.5 27.5q0 40-28 68t-68 28q-15 0-27.5-3.5t-25.5-13-19-15-21.5-21.5-18.5-19q-33 31-33 73 0 40 28 68l206 207q27 27 68 27 40 0 68-26l147-146q28-28 28-67zm-703-705q0-40-28-68l-206-207q-28-28-68-28-39 0-68 27l-147 146q-28 28-28 67 0 40 28 68l208 208q27 27 68 27 42 0 72-31-3-3-19-18.5t-21.5-21.5-15-19-13-25.5-3.5-27.5q0-40 28-68t68-28q15 0 27.5 3.5t25.5 13 19 15 21.5 21.5 18.5 19q33-31 33-73zm895 705q0 120-85 203l-147 146q-83 83-203 83-121 0-204-85l-206-207q-83-83-83-203 0-123 88-209l-88-88q-86 88-208 88-120 0-204-84l-208-208q-84-84-84-204t85-203l147-146q83-83 203-83 121 0 204 85l206 207q83 83 83 203 0 123-88 209l88 88q86-88 208-88 120 0 204 84l208 208q84 84 84 204z"></path>
                         </svg>
-                      </button>
-                      <button class="flex p-2 items-center rounded-full bg-white shadow text-gray-400 hover:text-gray-700 text-md">
+                      </button> */}
+                      <motion.button
+                        whileHover={{ rotate: 40 }}
+                        class="flex p-2 items-center rounded-full bg-white shadow text-gray-400 hover:text-gray-700 text-md"
+                      >
                         <svg
                           width="20"
                           height="20"
@@ -216,8 +228,8 @@ export default function Login({ username }) {
                         >
                           <path d="M912 1696q0-16-16-16-59 0-101.5-42.5t-42.5-101.5q0-16-16-16t-16 16q0 73 51.5 124.5t124.5 51.5q16 0 16-16zm816-288q0 52-38 90t-90 38h-448q0 106-75 181t-181 75-181-75-75-181h-448q-52 0-90-38t-38-90q50-42 91-88t85-119.5 74.5-158.5 50-206 19.5-260q0-152 117-282.5t307-158.5q-8-19-8-39 0-40 28-68t68-28 68 28 28 68q0 20-8 39 190 28 307 158.5t117 282.5q0 139 19.5 260t50 206 74.5 158.5 85 119.5 91 88z"></path>
                         </svg>
-                      </button>
-                      <button class="flex py-2 px-3 items-center font-bold rounded-lg bg-green-600 shadow text-white hover:text-gray-700 text-md">
+                      </motion.button>
+                      <button class="flex py-2 px-3 items-center font-bold rounded-lg bg-green-600 shadow text-white hover:text-green-800 text-md">
                         {premium}
                       </button>
                       <span class="w-1 h-8 rounded-lg bg-gray-200"></span>
@@ -244,7 +256,8 @@ export default function Login({ username }) {
                             }}
                           >
                             {username}
-                            <svg
+                            <motion.svg
+                              // whileHover={{ scale: 1.1 }}
                               width="20"
                               height="20"
                               fill="currentColor"
@@ -252,7 +265,7 @@ export default function Login({ username }) {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
-                            </svg>
+                            </motion.svg>
                           </button>
                         </div>
                         <div
@@ -338,7 +351,7 @@ export default function Login({ username }) {
                             <p class="text-white text-sm">Safe</p>
                           </button>
 
-                          <div class="hidden rounded-xl peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
+                          {/* <div class="hidden rounded-xl peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
                             <a
                               class="px-5 py-3 rounded-xl hover:bg-gray-200"
                               href="#"
@@ -357,7 +370,7 @@ export default function Login({ username }) {
                             >
                               Maths Assgn.
                             </a>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
 
@@ -370,7 +383,7 @@ export default function Login({ username }) {
                             <p class="text-white text-sm">Compromised</p>
                           </button>
 
-                          <div class="hidden rounded-xl peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
+                          {/* <div class="hidden rounded-xl peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg">
                             <a
                               class="px-5 py-3 rounded-xl hover:bg-gray-200"
                               href="#"
@@ -389,7 +402,7 @@ export default function Login({ username }) {
                             >
                               Event 3
                             </a>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -424,7 +437,7 @@ export default function Login({ username }) {
                     </span>
                   </div>
                   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
-                    <div class="w-full">
+                    {/* <div class="w-full">
                       <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
                         <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
                           facebook
@@ -435,17 +448,26 @@ export default function Login({ username }) {
                           </p>
                         </div>
                       </div>
-                    </div>
-                    {eventData.map((eventData1) => {
+                    </div> */}
+                    {eventData.map((eventData1, index) => {
                       return (
                         <>
                           <div class="w-full">
                             <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
-                              <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                                {eventData1.notice}
-                              </p>
-                              <div class="flex items-end space-x-2 my-6">
-                                <p class="text-5xl text-black dark:text-white font-bold">
+                              <div className="flex">
+                                <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
+                                  {eventData1.notice}
+                                </p>
+                                <motion.img
+                                  whileHover={{ rotate: 180 }}
+                                  onClick={() => removeTodo(index)}
+                                  src={deleteicon}
+                                  className="w-[35px] mx-2 cursor-pointer"
+                                  alt=""
+                                />
+                              </div>
+                              <div class="flex items-end px-1 space-x-2 my-6">
+                                <p class="text-4xl text-black dark:text-white font-bold">
                                   {eventData1.date}
                                 </p>
                               </div>
@@ -494,38 +516,7 @@ export default function Login({ username }) {
                 </div>
                 {/* // */}
                 {/* // Password Generator */}
-                {/* <div>
-                    <div className="text-center my-5 text-4xl text-white font-bold mx-auto">
-                      Generate strong and random passwords
-                    </div>
-                  </div>
-                  <div className="text-center my-5 md:mx-60 text-white font-bold mx-auto">
-                    Upgrade the security of your online accounts - create strong
-                    passwords that are completely random and impossible to
-                    guess. Select the length of your new password, choose what
-                    symbols to include and copy your password easily!
-                  </div>
-                  <div class="w-full">
-                    <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
-                      <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                        facebook
-                      </p>
-                      <div class="flex items-end space-x-2 my-6">
-                        <p class="text-5xl text-black dark:text-white font-bold">
-                          xyz@123
-                        </p>
-                        <div>
-                          <button className="bg-purple-600 text-white rounded-lg px-3 py-2">
-                            Copy Password
-                          </button>
-                        </div>
-                      </div>
-                      <div class="flex items-end space-x-2 my-6 text-white">
-                        <div className="block w-full ">Password strength : </div>
-                        <div className="block w-full ">Password length : </div>
-                      </div>
-                    </div>
-                  </div> */}
+
                 <div className={`${generator_visibility}`}>
                   <PasswordGenerator username={username} />
                 </div>
@@ -539,28 +530,6 @@ export default function Login({ username }) {
         {/* <div>
           <div>Generate strong and random passwords</div>
         </div> */}
-
-        {/* // OLD SECTION  */}
-        {/* <div className="relative mt-28 bg-white w-full h-[585px] overflow-hidden text-left text-[35px] text-black font-inter">
-        <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[93px] h-[585px]" />
-        <b className="absolute top-[0px] left-[115px] flex items-center w-[361px] h-[95px]">
-          Student Dashboard
-        </b>
-        <b className="absolute top-[263px] left-[115px] text-xl flex items-center w-[361px] h-[95px]">
-          Student Details
-        </b>
-        <div className="absolute top-[95px] left-[calc(50%_-_304px)] bg-brown-100 w-[526px] h-[168px]" />
-        <div className="absolute top-[0px] right-[0px] bg-gray-100 w-[176px] h-[585px]" />
-        <div className="absolute top-[112px] left-[calc(50%_-_287px)] rounded-lg bg-purple-600 w-[324px] h-[127px]" />
-        <div className="absolute text-white px-2 top-[112px] left-[calc(50%_-_287px)] rounded-lg bg-purple-600 w-[324px] h-[127px]">
-          <div className="font-semibold">Exam - PT2</div>
-        </div>
-        <div className="absolute top-[112px] left-[calc(50%_-_-62px)] rounded-lg bg-gray-100 w-[141px] h-[127px]" />
-        <div className="absolute top-[361px] left-[calc(50%_-_304px)] rounded-lg w-[526px] h-[178px]" />
-        <div className="absolute top-[381px] left-[calc(50%_-_287px)] rounded-lg bg-gray-100 w-[324px] h-[134px]" />
-        <div className="absolute top-[381px] left-[calc(50%_-_-62px)] rounded-lg bg-gray-100 w-[141px] h-[134px]" />
-      </div> */}
-        {/* // OLD SECTION  */}
       </div>
     </>
   );

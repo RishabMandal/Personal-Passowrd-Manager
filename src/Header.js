@@ -89,12 +89,18 @@ export default function () {
                           setLoginpage("");
                         }
                       }}
-                      className="mr-3 cursor-pointer text-white bg-red-600 py-2 px-4 rounded-xl"
+                      className="mr-3 cursor-pointer text-white bg-red-700 py-2 px-4 rounded-xl"
                     >
                       Login
                     </a>
                     <a
-                      href="https://rishabmandal.github.io/Login-Page/"
+                      onClick={() => {
+                        if (setLoginpage === "") {
+                          setLoginpage("hidden");
+                        } else {
+                          setLoginpage("");
+                        }
+                      }}
                       className="mr-5 cursor-pointer text-white bg-blue-600 py-2 px-4 rounded-xl"
                     >
                       Register
@@ -103,7 +109,7 @@ export default function () {
                 </div>
               </header>
               <div className={`${loginpage === "" ? "hidden" : ""}`}>
-                <BelowHeader myRef={myRef} executeScroll={executeScroll}/>
+                <BelowHeader myRef={myRef} executeScroll={executeScroll} />
               </div>
               <div className={`${loginpage} w-screen`}>
                 <LoginForm

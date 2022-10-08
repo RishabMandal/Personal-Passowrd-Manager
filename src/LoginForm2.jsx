@@ -88,7 +88,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                             type="password"
                             id="form2Example22"
                             className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724]"
-                            placeholder="Password"
+                            placeholder="Master Password"
                             onChange={(e) => {
                               setpasswordDetails(e.target.value);
                             }}
@@ -125,7 +125,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                           <p className="mb-0 me-2">Don't have an account?</p>
                           <button
                             type="button"
-                            className="btn bg-red-600 p-2 rounded-lg text-white m-4"
+                            className="btn bg-red-600 py-2 px-3 rounded-lg text-white m-4"
                             onClick={() => {
                               Signup.setSignUpstate("true");
                             }}
