@@ -98,7 +98,7 @@ export default function ActualPasswordGen() {
               className="rounded-lg px-3 py-2 mb-4 font-bold"
               type="text"
               value={handelText}
-              placeholder=""
+              placeholder="Password"
               autoComplete="off"
               onChange={(e) => setHandelText(e.target.value)}
             />
@@ -118,7 +118,7 @@ export default function ActualPasswordGen() {
             </button>
           </div>
           <br />
-          <div className="flex mx-auto text-center text-lg word-crieteria__box">
+          <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
               <label className="font-semibold mr-4">Password length</label>
             </div>
@@ -133,7 +133,7 @@ export default function ActualPasswordGen() {
               />
             </div>
           </div>
-          <div className="flex mx-auto text-center text-lg word-crieteria__box">
+          <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
               <label className="font-semibold my-1">
                 Include uppercase letters
@@ -146,7 +146,7 @@ export default function ActualPasswordGen() {
               />
             </div>
           </div>
-          <div className="flex mx-auto text-center text-lg word-crieteria__box">
+          <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
               <label className="font-semibold my-1">
                 Include lowercase letters
@@ -159,7 +159,7 @@ export default function ActualPasswordGen() {
               />
             </div>
           </div>
-          <div className="flex mx-auto text-center text-lg word-crieteria__box">
+          <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
               <label className="font-semibold my-1">Include numbers</label>
             </div>
@@ -170,7 +170,7 @@ export default function ActualPasswordGen() {
               />
             </div>
           </div>
-          <div className="flex mx-auto text-center text-lg word-crieteria__box">
+          <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
               <label className="font-semibold my-1">Include symbols</label>
             </div>
@@ -183,7 +183,7 @@ export default function ActualPasswordGen() {
           </div>
           <div>
             <button
-              className="generate-button text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
+              className="generate-button my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
               onClick={generatePassword}
             >
               Generate password

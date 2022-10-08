@@ -13,7 +13,7 @@ const PasswordStrengthMeter = ({ password1 }) => {
       case 1:
         return "Weak";
       case 2:
-        return "Fear";
+        return "Average";
       case 3:
         return "Good";
       case 4:
@@ -48,11 +48,13 @@ const PasswordStrengthMeter = ({ password1 }) => {
             <div
               class={`w-${
                 num == 0 ? 1 : num
-              }/4 h-full text-center text-xs text-white bg-${funcProgressColor()}-500 rounded-full`}
+              }/4 h-full text-center text-xs text-white bg-${funcProgressColor()}-600 rounded-full`}
             ></div>
           </div>
         </div>
-        <div className={`text-${funcProgressColor()}-500`}>{createPassLabel()}</div>
+        <div className={` text-${funcProgressColor()}-600 `}>
+          {createPassLabel()}
+        </div>
       </div>
     </>
   );
