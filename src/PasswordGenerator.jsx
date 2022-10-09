@@ -21,7 +21,7 @@ export default function PasswordGenerator({ username }) {
       {/* // */}
 
       <div
-        className={`${generator_visibility} mx-4 pr-4 h-[75vh] overflow-y-scroll`}
+        className={`${generator_visibility} ml-4 pr-4 h-[75vh] overflow-y-scroll`}
       >
         {/* <div className=" overflow-auto h-[1000px]"> */}
         <div className="">

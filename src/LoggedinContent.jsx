@@ -317,7 +317,7 @@ export default function Login({ username }) {
                     generator_visibility == "hidden" ? "" : "hidden"
                   } overflow-auto h-screen pb-24 px-4 md:px-6`}
                 >
-                  <h1 class="text-4xl font-semibold text-gray-800 dark:text-white">
+                  <h1 class="text-4xl mt-8 font-semibold text-gray-800 dark:text-white">
                     Welcome back, {username}
                   </h1>
                   <h2 class="text-md mt-2 text-gray-400">
@@ -327,13 +327,13 @@ export default function Login({ username }) {
                     <div class="w-full md:w-6/12">
                       <div class="shadow-lg w-full bg-white rounded-xl dark:bg-gray-700 relative overflow-hidden">
                         <a href="#" class="w-full h-full block">
-                          <div class="flex items-center bg-purple-600 rounded-xl justify-between px-4 py-6 space-x-4">
+                          <div class="flex items-center bg-purple-600 hover:bg-purple-700 rounded-xl justify-between px-4 py-6 space-x-4">
                             <div class="flex items-center rounded-xl">
                               <p
                                 onClick={() => {
-                                  setgenerator_visibility("");
+                                  setgenerator_visibility(""); 
                                 }}
-                                class="text-xl bg-purple-600 text-gray-700 dark:text-white ml-2 font-semibold"
+                                class="text-xl text-gray-700 dark:text-white ml-2 font-semibold"
                               >
                                 Generate new password
                               </p>
@@ -348,8 +348,8 @@ export default function Login({ username }) {
                     </div>
                     <div class="flex items-center w-full md:w-1/2 space-x-4">
                       <div class="w-1/2 ">
-                        <div class="shadow-lg cursor-pointer bg-orange-500 rounded-xl px-4 py-6 w-full relative">
-                          <button class="peer px-5 py-2 bg-orange-500 hover:bg-orange-700 text-white">
+                        <div class="shadow-lg cursor-pointer bg-orange-500 hover:bg-orange-600 rounded-xl px-4 py-6 w-full relative">
+                          <button class="peer px-5 py-2 text-white">
                             <p class="text-2xl text-black dark:text-white font-bold">
                               All
                             </p>
@@ -380,8 +380,8 @@ export default function Login({ username }) {
                       </div>
 
                       <div class="w-1/2 ">
-                        <div class="shadow-lg cursor-pointer bg-orange-500 rounded-xl px-4 py-6 w-full relative">
-                          <button class="peer px-5 py-2 bg-orange-500 hover:bg-orange-700 text-white">
+                        <div class="shadow-lg cursor-pointer bg-orange-500 hover:bg-orange-600 rounded-xl px-4 py-6 w-full relative">
+                          <button class="peer px-5 py-2 text-white">
                             <p class="text-2xl text-black dark:text-white font-bold">
                               0
                             </p>
