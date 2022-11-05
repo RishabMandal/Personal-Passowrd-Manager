@@ -469,7 +469,10 @@ export default function Login({ username }) {
                                 </p>
                                 <motion.img
                                   whileHover={{ rotate: 180 }}
-                                  onClick={() => removeTodo(index)}
+                                  onClick={() => {
+                                    removeTodo(index);
+                                    navigator.vibrate(50);
+                                  }}
                                   src={deleteicon}
                                   className="w-[35px] mx-2 cursor-pointer"
                                   alt=""
