@@ -111,6 +111,7 @@ export default function Login({ username }) {
                         </span>
                         <span
                           onClick={() => {
+                            navigator.vibrate(50);
                             setgenerator_visibility("hidden");
                           }}
                           class="mx-2 text-sm font-normal"
@@ -136,6 +137,7 @@ export default function Login({ username }) {
                         <span
                           class="mx-2 text-sm font-normal"
                           onClick={() => {
+                            navigator.vibrate(50);
                             setgenerator_visibility("");
                           }}
                         >
@@ -189,6 +191,7 @@ export default function Login({ username }) {
                   <div class="block lg:hidden ml-6">
                     <button
                       onClick={() => {
+                        navigator.vibrate(50);
                         setgenerator_visibility("hidden");
                       }}
                       class="flex p-2 mt-4 items-center rounded-full bg-white shadow text-gray-500 text-md"
@@ -253,6 +256,7 @@ export default function Login({ username }) {
                             class=" border border-gray-300 bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500"
                             id="options-menu"
                             onClick={() => {
+                              navigator.vibrate(50);
                               if (popover_visibility === "") {
                                 setpopover_visibility("hidden");
                               } else {
@@ -331,7 +335,8 @@ export default function Login({ username }) {
                             <div class="flex items-center rounded-xl">
                               <p
                                 onClick={() => {
-                                  setgenerator_visibility(""); 
+                                  navigator.vibrate(50);
+                                  setgenerator_visibility("");
                                 }}
                                 class="text-xl text-gray-700 dark:text-white ml-2 font-semibold"
                               >
@@ -488,6 +493,9 @@ export default function Login({ username }) {
                       <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
                         <p class="text-xl text-black">
                           <input
+                            onClick={() => {
+                              navigator.vibrate(50);
+                            }}
                             className="w-11/12 bg-gray-200 rounded-lg p-2"
                             placeholder="Account identifier"
                             type="text"
@@ -499,6 +507,9 @@ export default function Login({ username }) {
                         {/* <div class="flex items-end space-x-2 mt-3 mb-6"> */}
                         <p class="text-xl mt-3 mb-6 text-black">
                           <input
+                            onClick={() => {
+                              navigator.vibrate(50);
+                            }}
                             className="w-11/12 bg-gray-200 rounded-lg p-2"
                             placeholder="Password"
                             type="text"
@@ -509,7 +520,10 @@ export default function Login({ username }) {
                         </p>
                         {/* </div> */}
                         <button
-                          onClick={setData}
+                          onClick={() => {
+                            setData();
+                            navigator.vibrate(50);
+                          }}
                           className="bg-orange-500 hover:bg-orange-100 hover:text-orange-500 rounded-lg px-3 py-2 text-white"
                         >
                           Add

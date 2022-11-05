@@ -105,7 +105,14 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                               name="vehicle"
                               class="h-5 w-5 text-red-600"
                             />
-                            <span class="ml-2 text-gray-700">I am not a ROBOT</span>
+                            <span
+                              onClick={() => {
+                                navigator.vibrate(50);
+                              }}
+                              class="ml-2 text-gray-700"
+                            >
+                              I am not a ROBOT
+                            </span>
                           </label>
                         </div>
 
@@ -114,6 +121,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                             className="block drop-shadow-xl fa-lg bg-gradient-to-r from-[#ee7724] to-[#b44593] px-4 py-2 rounded-lg text-white mx-auto mb-3"
                             type="button"
                             onClick={() => {
+                              navigator.vibrate(50);
                               login.setLogin("true");
                             }}
                           >
@@ -127,6 +135,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                             type="button"
                             className="btn bg-red-600 py-2 px-3 rounded-lg text-white m-4"
                             onClick={() => {
+                              navigator.vibrate(50);
                               Signup.setSignUpstate("true");
                             }}
                           >

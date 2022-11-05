@@ -105,6 +105,7 @@ export default function ActualPasswordGen() {
             <button
               className="copy-button mx-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
               onClick={() => {
+                navigator.vibrate(50);
                 if (handelText.length > 0) {
                   navigator.clipboard.writeText(handelText);
                   setCopied(true);
@@ -184,7 +185,10 @@ export default function ActualPasswordGen() {
           <div>
             <button
               className="generate-button my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
-              onClick={generatePassword}
+              onClick={() => {
+                navigator.vibrate(50);
+                generatePassword();
+              }}
             >
               Generate password
             </button>

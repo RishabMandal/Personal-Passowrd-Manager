@@ -28,13 +28,21 @@ export default function ManagerPage1({ myRef, executeScroll }) {
             </p>
             <div className="flex justify-center">
               <button
-                onClick={executeScroll}
+                // onClick={executeScroll}
+                onClick={() => {
+                  executeScroll();
+                  navigator.vibrate(50);
+                }}
                 className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-green-200 rounded-lg text-lg"
               >
                 Get Personal Plan
               </button>
               <button
-                onClick={executeScroll}
+                // onClick={executeScroll}
+                onClick={() => {
+                  executeScroll();
+                  navigator.vibrate(50);
+                }}
                 className="ml-4 inline-flex text-white  bg-green-700 border-0 py-2 px-6 focus:outline-none hover:bg-green-800 rounded-lg text-lg"
               >
                 Get Premium Plan
@@ -411,7 +419,12 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     </span>
                     Securely store passwords
                   </p>
-                  <button class="flex font-bold items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg">
+                  <button
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
+                    class="flex font-bold items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg"
+                  >
                     Get Started
                     <svg
                       fill="none"
@@ -522,7 +535,12 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     </span>
                     Securely store passwords
                   </p>
-                  <button class="flex font-bold items-center mt-auto text-white bg-red-700 border-0 py-2 px-4 w-full focus:outline-none hover:bg-red-800 rounded-lg">
+                  <button
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
+                    class="flex font-bold items-center mt-auto text-white bg-red-700 border-0 py-2 px-4 w-full focus:outline-none hover:bg-red-800 rounded-lg"
+                  >
                     Get Premium Plan
                     <svg
                       fill="none"
@@ -630,7 +648,12 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     </span>
                     Securely store passwords
                   </p>
-                  <button class="flex font-bold items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg">
+                  <button
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
+                    class="flex font-bold items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg"
+                  >
                     Get Family Plan
                     <svg
                       fill="none"
