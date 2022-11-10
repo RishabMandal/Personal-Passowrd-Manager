@@ -19,7 +19,7 @@ export default function Login({ username }) {
   const [popover_visibility, setpopover_visibility] = useState("hidden");
 
   // if Teacher
-  const [teacher, setTeacher] = useState("hidden");
+  // const [teacher, setTeacher] = useState("hidden");
 
   // New Data
   const [eventData, seteventData] = useState([
@@ -30,7 +30,7 @@ export default function Login({ username }) {
   const [date2, setdate2] = useState("");
 
   function setData() {
-    if (notice2 == "" || date2 == "") {
+    if (notice2 === "" || date2 === "") {
       return;
     }
     seteventData([...eventData, { notice: notice2, date: date2 }]);
@@ -54,10 +54,10 @@ export default function Login({ username }) {
   const [premium, setpremium] = useState("GET PREMIUM");
   useEffect(() => {
     if (
-      username == "Rishab" ||
-      username == "Krish" ||
-      username == "Vivaan" ||
-      username == "Arnav"
+      username === "Rishab" ||
+      username === "Krish" ||
+      username === "Vivaan" ||
+      username === "Arnav"
     ) {
       setpremium("PREMIUM");
     }
@@ -78,12 +78,12 @@ export default function Login({ username }) {
         {/* // NEW SECTION END */}
 
         <div>
-          <main class="bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative">
+          <main class="bg-gray-800 h-screen overflow-hidden relative">
             <div class="flex items-start justify-between">
               <div class="h-screen hidden lg:block shadow-lg relative w-80">
-                <div class="bg-white h-full dark:bg-gray-700">
+                <div class="h-full bg-gray-700">
                   <div class="flex items-center justify-start pt-6">
-                    <p class="font-bold dark:text-white text-3xl">
+                    <p class="font-bold text-white text-3xl">
                       {/* PersonalPass */}
                     </p>
                     <img
@@ -95,7 +95,7 @@ export default function Login({ username }) {
                   <nav class="mt-6">
                     <div>
                       <a
-                        class="w-full text-gray-800 dark:text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-purple-500"
+                        class="w-full text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-purple-500"
                         href="#"
                       >
                         <span class="text-left">
@@ -253,7 +253,7 @@ export default function Login({ username }) {
                         <div>
                           <button
                             type="button"
-                            class=" border border-gray-300 bg-white dark:bg-gray-800 shadow-sm flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500"
+                            class=" border border-gray-300 bg-gray-800 shadow-sm flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-50 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500"
                             id="options-menu"
                             onClick={() => {
                               navigator.vibrate(50);
@@ -278,7 +278,7 @@ export default function Login({ username }) {
                           </button>
                         </div>
                         <div
-                          class={`${popover_visibility} origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5`}
+                          class={`${popover_visibility} origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5`}
                         >
                           <div
                             class="py-1 rounded-xl"
@@ -318,10 +318,10 @@ export default function Login({ username }) {
                 </header>
                 <div
                   class={`${
-                    generator_visibility == "hidden" ? "" : "hidden"
+                    generator_visibility === "hidden" ? "" : "hidden"
                   } overflow-auto h-screen pb-24 px-4 md:px-6`}
                 >
-                  <h1 class="text-4xl mt-8 font-semibold text-gray-800 dark:text-white">
+                  <h1 class="text-4xl mt-8 font-semibold text-white">
                     Welcome back, {username}
                   </h1>
                   <h2 class="text-md mt-2 text-gray-400">
@@ -329,7 +329,7 @@ export default function Login({ username }) {
                   </h2>
                   <div class="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
                     <div class="w-full md:w-6/12">
-                      <div class="shadow-lg w-full bg-white rounded-xl dark:bg-gray-700 relative overflow-hidden">
+                      <div class="shadow-lg w-full rounded-xl bg-gray-700 relative overflow-hidden">
                         <a href="#" class="w-full h-full block">
                           <div class="flex items-center bg-purple-600 hover:bg-purple-700 rounded-xl justify-between px-4 py-6 space-x-4">
                             <div class="flex items-center rounded-xl">
@@ -338,7 +338,7 @@ export default function Login({ username }) {
                                   navigator.vibrate(50);
                                   setgenerator_visibility("");
                                 }}
-                                class="text-xl text-gray-700 dark:text-white ml-2 font-semibold"
+                                class="text-xl text-white ml-2 font-semibold"
                               >
                                 Generate new password
                               </p>
@@ -353,11 +353,9 @@ export default function Login({ username }) {
                     </div>
                     <div class="flex items-center w-full md:w-1/2 space-x-4">
                       <div class="w-1/2 ">
-                        <div class="shadow-lg cursor-pointer bg-orange-500 hover:bg-orange-600 rounded-xl px-4 py-6 w-full relative">
+                        <div class="shadow-lg cursor-pointer bg-orange-600 rounded-xl px-4 py-6 w-full relative">
                           <button class="peer px-5 py-2 text-white">
-                            <p class="text-2xl text-black dark:text-white font-bold">
-                              All
-                            </p>
+                            <p class="text-2xl text-white font-bold">All</p>
                             <p class="text-white text-sm">Safe</p>
                           </button>
 
@@ -385,11 +383,9 @@ export default function Login({ username }) {
                       </div>
 
                       <div class="w-1/2 ">
-                        <div class="shadow-lg cursor-pointer bg-orange-500 hover:bg-orange-600 rounded-xl px-4 py-6 w-full relative">
+                        <div class="shadow-lg cursor-pointer bg-orange-600 rounded-xl px-4 py-6 w-full relative">
                           <button class="peer px-5 py-2 text-white">
-                            <p class="text-2xl text-black dark:text-white font-bold">
-                              0
-                            </p>
+                            <p class="text-2xl text-white font-bold">0</p>
                             <p class="text-white text-sm">Compromised</p>
                           </button>
 
@@ -462,16 +458,18 @@ export default function Login({ username }) {
                       return (
                         <>
                           <div class="w-full">
-                            <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
+                            <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
                               <div className="flex">
-                                <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
+                                <p class="text-xl w-max text-white font-semibold border-b border-gray-200">
                                   {eventData1.notice}
                                 </p>
                                 <motion.img
                                   whileHover={{ rotate: 180 }}
                                   onClick={() => {
                                     removeTodo(index);
-                                    navigator.vibrate([100, 30, 30, 100]);
+                                    navigator.vibrate([
+                                      75, 10, 10, 75, 10, 10, 75,
+                                    ]);
                                   }}
                                   src={deleteicon}
                                   className="w-[35px] mx-2 cursor-pointer"
@@ -479,7 +477,7 @@ export default function Login({ username }) {
                                 />
                               </div>
                               <div class="flex items-end px-1 space-x-2 my-6">
-                                <p class="text-4xl text-black dark:text-white font-bold">
+                                <p class="text-4xl text-white font-bold">
                                   {eventData1.date}
                                 </p>
                               </div>
@@ -493,7 +491,7 @@ export default function Login({ username }) {
                       );
                     })}
                     <div class="w-full">
-                      <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
+                      <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
                         <p class="text-xl text-black">
                           <input
                             onClick={() => {
@@ -525,9 +523,9 @@ export default function Login({ username }) {
                         <button
                           onClick={() => {
                             setData();
-                            navigator.vibrate([100, 30, 30, 100]);
+                            navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
                           }}
-                          className="bg-orange-500 hover:bg-orange-100 hover:text-orange-500 rounded-lg px-3 py-2 text-white"
+                          className="bg-orange-600 font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
                         >
                           Add
                         </button>

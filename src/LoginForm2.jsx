@@ -73,6 +73,9 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                     onChange={(e) => {
                       setnameDetails(e.target.value);
                     }}
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
                   />
                 </div>
 
@@ -84,6 +87,9 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                     placeholder="Master Password"
                     onChange={(e) => {
                       setpasswordDetails(e.target.value);
+                    }}
+                    onClick={() => {
+                      navigator.vibrate(50);
                     }}
                   />
                 </div>
@@ -100,7 +106,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                     />
                     <span
                       onClick={() => {
-                        navigator.vibrate(50);
+                        navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
                       }}
                       className="ml-2 text-gray-600"
                     >

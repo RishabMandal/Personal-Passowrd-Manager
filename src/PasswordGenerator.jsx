@@ -6,10 +6,10 @@ export default function PasswordGenerator({ username }) {
   const [generator_visibility, setgenerator_visibility] = useState("hidden");
   useEffect(() => {
     if (
-      username == "Rishab" ||
-      username == "Krish" ||
-      username == "Vivaan" ||
-      username == "Arnav"
+      username === "Rishab" ||
+      username === "Krish" ||
+      username === "Vivaan" ||
+      username === "Arnav"
     ) {
       setgenerator_visibility("");
     }
@@ -67,7 +67,7 @@ export default function PasswordGenerator({ username }) {
       </div>
       <div
         className={`${
-          generator_visibility == "hidden" ? "" : "hidden"
+          generator_visibility === "hidden" ? "" : "hidden"
         } text-white text-3xl`}
       >
         <div className="text-red-600 my-2">Oops !</div>
