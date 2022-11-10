@@ -471,7 +471,7 @@ export default function Login({ username }) {
                                   whileHover={{ rotate: 180 }}
                                   onClick={() => {
                                     removeTodo(index);
-                                    navigator.vibrate(50);
+                                    navigator.vibrate([100, 30, 30, 100]);
                                   }}
                                   src={deleteicon}
                                   className="w-[35px] mx-2 cursor-pointer"
@@ -525,7 +525,7 @@ export default function Login({ username }) {
                         <button
                           onClick={() => {
                             setData();
-                            navigator.vibrate(50);
+                            navigator.vibrate([100, 30, 30, 100]);
                           }}
                           className="bg-orange-500 hover:bg-orange-100 hover:text-orange-500 rounded-lg px-3 py-2 text-white"
                         >

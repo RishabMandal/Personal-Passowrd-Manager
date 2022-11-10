@@ -12,9 +12,9 @@ import React, { useState, useEffect } from "react";
 export default function LoginForm2({ password, name, login, Signup, admin }) {
   const [nameDetails, setnameDetails] = useState("Name");
   const [passwordDetails, setpasswordDetails] = useState("");
-  //   const [SignUpstate, setSignUpstate] = useState("false");
+  // //   const [SignUpstate, setSignUpstate] = useState("false");
 
-  //   console.log(nameDetails);
+  // //   console.log(nameDetails);
 
   useEffect(() => {
     // console.log(nameDetails);
@@ -47,119 +47,115 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
     <>
       {/* <Router> */}
       {/* Old Section */}
-      <section className="h-100 gradient-form bg-[#eee] rounded-xl">
-        <div className="py-5 h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-xl-10">
-              <div className="card rounded-3 text-black">
-                <div className="row g-0">
-                  <div className="col-lg-6">
-                    <div className="card-body p-md-5 mx-md-4">
-                      <div className="text-center">
-                        <img
-                          className="mx-auto"
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                        />
-                        {/* <style="width: 185px;" alt="logo"> */}
-                        <h4 className="mt-1 mb-10 text-xl pb-1">
-                          Welcome to PersonalPass
-                        </h4>
-                      </div>
+      <section className="bg-gray-200 min-h-screen p-6 items-center w-screen">
+        <div className="flex flex-col mx-auto justify-center lg:flex-row xl:flex-row">
+          <div className="bg-white lg:w-[50%] xl:w-[50%] max-w-2xl p-5 rounded-l-lg">
+            <div className="mt-[10vh] my-auto">
+              <div className="text-center mx-auto">
+                <img
+                  className="w-[185px] mx-auto"
+                  alt=""
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                />
+                <h4 className="mt-1 text-xl font-bold mb-5 pb-1">
+                  Welcome to PersonalPass
+                </h4>
+              </div>
+              <form>
+                <p className="text-lg my-3">Please login to your account</p>
 
-                      <form>
-                        <p className="text-2xl my-3">
-                          Please login to your account
-                        </p>
+                <div className="form-outline my-4">
+                  <input
+                    type="name"
+                    id="form2Example11"
+                    className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724] "
+                    placeholder="Username"
+                    onChange={(e) => {
+                      setnameDetails(e.target.value);
+                    }}
+                  />
+                </div>
 
-                        <div className="form-outline my-4">
-                          <input
-                            type="name"
-                            id="form2Example11"
-                            className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724] "
-                            placeholder="Username"
-                            onChange={(e) => {
-                              setnameDetails(e.target.value);
-                            }}
-                          />
-                        </div>
+                <div className="form-outline mb-4">
+                  <input
+                    type="password"
+                    id="form2Example22"
+                    className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724]"
+                    placeholder="Master Password"
+                    onChange={(e) => {
+                      setpasswordDetails(e.target.value);
+                    }}
+                  />
+                </div>
 
-                        <div className="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="form2Example22"
-                            className="form-control drop-shadow-md mx-auto md:w-[400px] p-2 rounded-lg border-2 hover:border-[#ee7724]"
-                            placeholder="Master Password"
-                            onChange={(e) => {
-                              setpasswordDetails(e.target.value);
-                            }}
-                          />
-                        </div>
+                {/* Error */}
+                <div className="hidden">Error</div>
 
-                        {/* Error */}
-                        <div className="hidden">Error</div>
+                <div className="flex items-center gap-8">
+                  <label className="inline-flex mx-auto items-center">
+                    <input
+                      type="radio"
+                      name="vehicle"
+                      className="h-5 w-5 text-red-600"
+                    />
+                    <span
+                      onClick={() => {
+                        navigator.vibrate(50);
+                      }}
+                      className="ml-2 text-gray-600"
+                    >
+                      I am not a ROBOT
+                    </span>
+                  </label>
+                </div>
 
-                        <div class="flex items-center gap-8">
-                          <label class="inline-flex mx-auto items-center">
-                            <input
-                              type="radio"
-                              name="vehicle"
-                              class="h-5 w-5 text-red-600"
-                            />
-                            <span
-                              onClick={() => {
-                                navigator.vibrate(50);
-                              }}
-                              class="ml-2 text-gray-700"
-                            >
-                              I am not a ROBOT
-                            </span>
-                          </label>
-                        </div>
+                <div className="text-center pt-1 my-5 pb-1">
+                  <button
+                    className="block drop-shadow-xl fa-lg bg-gradient-to-r from-[#ee7724] via-red-600 via-[#dd3675] to-[#b44593] px-4 py-2 rounded-lg text-white mx-auto mb-3"
+                    type="button"
+                    onClick={() => {
+                      navigator.vibrate(50);
+                      login.setLogin("true");
+                    }}
+                  >
+                    LOG IN
+                  </button>
+                </div>
 
-                        <div className="text-center pt-1 my-5 pb-1">
-                          <button
-                            className="block drop-shadow-xl fa-lg bg-gradient-to-r from-[#ee7724] to-[#b44593] px-4 py-2 rounded-lg text-white mx-auto mb-3"
-                            type="button"
-                            onClick={() => {
-                              navigator.vibrate(50);
-                              login.setLogin("true");
-                            }}
-                          >
-                            LOG IN
-                          </button>
-                        </div>
-
-                        <div className="d-flex align-items-center justify-content-center pb-4">
-                          <p className="mb-0 me-2">Don't have an account?</p>
-                          <button
-                            type="button"
-                            className="btn bg-red-600 py-2 px-3 rounded-lg text-white m-4"
-                            onClick={() => {
-                              navigator.vibrate(50);
-                              Signup.setSignUpstate("true");
-                            }}
-                          >
-                            CREATE NEW
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 d-flex align-items-center rounded-lg bg-gradient-to-r from-[#ee7724] to-[#b44593]">
-                    <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                      <h4 className="mb-4 text-2xl">
-                        Secure, anonymous, stateless password manager
-                      </h4>
-                      <p className="small mb-0">
-                        We do not use cookies, tracking scripts or any third
-                        party in browser software.
-                      </p>
-                    </div>
+                <div className="inline-block mx-auto">
+                  <div className="flex space-x-2 align-items-center justify-content-center pb-4">
+                    <p className="my-auto">Don't have an account?</p>
+                    <button
+                      type="button"
+                      className="bg-red-600 border-2 border-red-600 py-2 px-4 rounded-lg text-white hover:text-red-600 hover:bg-white"
+                      onClick={() => {
+                        navigator.vibrate(50);
+                        Signup.setSignUpstate("true");
+                      }}
+                    >
+                      CREATE NEW
+                    </button>
                   </div>
                 </div>
+              </form>
+            </div>
+          </div>
+          {/* <div className="bg-orange-600 p-5"> */}
+          <div className="rounded-r-lg lg:w-[50%] xl:w-[50%] max-w-2xl items-center bg-gradient-to-r from-[#ee7724] via-red-600 to-[#b44593]">
+            <div className="text-white my-[30vh] px-16 py-4">
+              {/* <div className="text-white inline-block px-16 py-4 my-auto"> */}
+              <div className="inline-block">
+                <h4 className="my-4 text-3xl font-bold">
+                  Secure, anonymous, stateless password manager
+                </h4>
+                <p className="text-md mt-2">
+                  We do not use cookies, tracking scripts or any third party in
+                  browser software.
+                </p>
               </div>
             </div>
           </div>
+          {/* </div> */}
         </div>
       </section>
       {/* </Router> */}
