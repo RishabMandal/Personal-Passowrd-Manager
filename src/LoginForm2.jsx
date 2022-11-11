@@ -23,6 +23,17 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
     password.setpassword(passwordDetails);
   });
 
+  //
+  useEffect(() => {
+    admin.setAdmin({
+      name: localStorage.getItem("Name"),
+      password: localStorage.getItem("Password"),
+    });
+    console.log("Running");
+  }, [Signup.SignUpstate == "false"]);
+
+  //
+
   // To make the input editable
   //   function onChangefunc(event) {
   //     setnameDetails(event.target.value);

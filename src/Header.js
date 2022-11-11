@@ -9,6 +9,7 @@ export default function () {
     name: localStorage.getItem("Name"),
     password: localStorage.getItem("Password"),
   });
+
   // const [User, setUser] = useState({ name: "", password: "" });
   const [name, setname] = useState("");
   const [password, setpassword] = useState("");
@@ -45,14 +46,14 @@ export default function () {
                       src={logo}
                       className="cursor-pointer hidden md:block lg:block xl:block w-40 mx-[-10px] my-[-10px] rounded-md"
                       alt=""
-                      />
+                    />
                     <span
                       onClick={() => {
                         navigator.vibrate(50);
                         window.location.reload(true);
                       }}
                       className="cursor-pointer md:hidden lg:hidden xl:hidden ml-3 text-xl"
-                      >
+                    >
                       PersonalPass
                     </span>
                   </a>
@@ -63,15 +64,16 @@ export default function () {
                         window.location.reload(true);
                       }}
                       className=" cursor-pointer mr-5 hover:text-gray-900"
-                      >
+                    >
                       Home
                     </a>
                     <a
-                      onClick={()=>{executeScroll();
+                      onClick={() => {
+                        executeScroll();
                         navigator.vibrate(50);
                       }}
                       className=" cursor-pointer mr-5 hover:text-green-600"
-                      >
+                    >
                       Premium
                     </a>
                     <a
@@ -84,7 +86,7 @@ export default function () {
                         }
                       }}
                       className="mr-3 cursor-pointer text-white bg-red-700 py-2 px-4 rounded-xl"
-                      >
+                    >
                       Login
                     </a>
                     <a

@@ -46,7 +46,7 @@ export default function SignUp({ admin, Signup }) {
                       <div className="form-outline mb-4">
                         <input
                           type="name"
-                          id="form2Example1"
+                          // id="form2Example1"
                           className="form-control p-2 rounded-md drop-shadow-md "
                           placeholder="First Name"
                           onChange={(e) => {
@@ -59,7 +59,7 @@ export default function SignUp({ admin, Signup }) {
                       <div className="form-outline mb-4">
                         <input
                           type="name"
-                          id="form2Example1"
+                          // id="form2Example1"
                           className="form-control p-2 rounded-md drop-shadow-md"
                           placeholder="Last Name"
                           onChange={(e) => {
