@@ -1,24 +1,13 @@
 // import SignUp from "./SignUp";
 import React, { useState, useEffect } from "react";
-// import {
-//   HashRouter as Router,
-//   Routes,
-//   Switch,
-//   Route,
-//   Link,
-//   NavLink,
-// } from "react-router-dom";
 
 export default function LoginForm2({ password, name, login, Signup, admin }) {
   const [nameDetails, setnameDetails] = useState("Name");
   const [passwordDetails, setpasswordDetails] = useState("");
-  // //   const [SignUpstate, setSignUpstate] = useState("false");
-
-  // //   console.log(nameDetails);
+  //   const [SignUpstate, setSignUpstate] = useState("false");
 
   useEffect(() => {
     // console.log(nameDetails);
-    // User.setUser(nameDetails);
     name.setname(nameDetails);
     password.setpassword(passwordDetails);
   });
@@ -29,9 +18,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
       name: localStorage.getItem("Name"),
       password: localStorage.getItem("Password"),
     });
-    console.log("Running");
-  }, [Signup.SignUpstate == "false"]);
-
+  }, [Signup.SignUpstate === "false"]);
   //
 
   // To make the input editable
@@ -158,9 +145,8 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
             </div>
           </div>
           {/* <div className="bg-orange-600 p-5"> */}
-          <div className="rounded-r-lg lg:w-[50%] xl:w-[50%] max-w-2xl items-center bg-gradient-to-r from-[#ee7724] via-red-600 to-[#b44593]">
-            <div className="text-white my-[30vh] px-16 py-4">
-              {/* <div className="text-white inline-block px-16 py-4 my-auto"> */}
+          <div className="rounded-r-lg flex lg:w-[50%] xl:w-[50%] max-w-2xl items-center bg-gradient-to-r from-[#ee7724] via-red-600 to-[#b44593]">
+            <div className="text-white my-auto px-16 py-40">
               <div className="inline-block">
                 <h4 className="my-4 text-3xl font-bold">
                   Secure, anonymous, stateless password manager

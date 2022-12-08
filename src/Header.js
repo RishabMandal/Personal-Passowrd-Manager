@@ -27,11 +27,14 @@ export default function () {
     <>
       <div>
         <div>
-          {name === Admin.name &&
+          {/* {name === Admin.name &&
           password === Admin.password &&
-          Login === "true" ? (
+          Login === "true" ? ( */}
+          {(name === Admin.name &&
+          password === Admin.password &&
+          Login === "true")||(localStorage.getItem("username")) ? (
             <>
-              <LoggedinContent username={Admin.name} />
+              <LoggedinContent username={Admin.name||(localStorage.getItem("username"))} />
             </>
           ) : (
             <>

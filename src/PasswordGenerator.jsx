@@ -7,6 +7,8 @@ export default function PasswordGenerator({ username }) {
   useEffect(() => {
     if (
       username === "Rishab" ||
+      username === "360 Rishab" ||
+      username === "Rishab Mandal" ||
       username === "Krish" ||
       username === "Vivaan" ||
       username === "Arnav"
@@ -17,9 +19,6 @@ export default function PasswordGenerator({ username }) {
 
   return (
     <>
-      {/* // */}
-      {/* // */}
-
       <div
         className={`${generator_visibility} ml-4 pr-4 h-[75vh] overflow-y-scroll`}
       >
@@ -36,27 +35,6 @@ export default function PasswordGenerator({ username }) {
             the length of your new password, choose what symbols to include and
             copy your password easily!
           </div>
-          {/* <div class="w-full">
-            <div class="shadow-lg rounded-xl px-4 py-6 w-full bg-white dark:bg-gray-700 relative">
-              <p class="text-xl w-max text-gray-700 dark:text-white font-semibold border-b border-gray-200">
-                facebook
-              </p>
-              <div class="flex items-end space-x-2 my-6">
-                <p class="text-5xl text-black dark:text-white font-bold">
-                  xyz@123
-                </p>
-                <div>
-                  <button className="bg-purple-600 text-white rounded-lg px-3 py-2">
-                    Copy Password
-                  </button>
-                </div>
-              </div>
-              <div class="flex items-end space-x-2 my-6 text-white">
-                <div className="block w-full ">Password strength : </div>
-                <div className="block w-full ">Password length : </div>
-              </div>
-            </div>
-          </div> */}
 
           {/* // */}
 

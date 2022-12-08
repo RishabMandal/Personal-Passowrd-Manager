@@ -85,20 +85,19 @@ export default function ActualPasswordGen() {
     generateTheWord(length, uppercase, lowercase, numbers, symbols);
   }
 
-  //
 
   return (
     <>
       {/* <div className="text-white">ActualPasswordGen</div>; */}
       <div className="wrapper">
-        <div className="container wrapper-box p-4 lg:p-8 mx-auto bg-gray-200 rounded-xl">
+        <div className="container wrapper-box p-4 lg:p-8 mx-auto bg-gray-700 rounded-xl">
           {/* <h2>Password Generator</h2> */}
           <div className="password-box drop-shadow-lg">
             <input
               className="rounded-lg px-3 py-2 mb-4 font-bold"
               type="text"
               value={handelText}
-              placeholder="Password"
+              placeholder="Generated Password"
               autoComplete="off"
               onChange={(e) => setHandelText(e.target.value)}
             />
@@ -121,11 +120,11 @@ export default function ActualPasswordGen() {
           <br />
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="font-semibold mr-4">Password length</label>
+              <label className="text-white font-semibold mr-4">Password length</label>
             </div>
             <div>
               <input
-                className="rounded-lg px-2 font-bold drop-shadow-lg"
+                className="rounded-lg text-center px-2 font-bold drop-shadow-lg"
                 type="number"
                 min="4"
                 max="20"
@@ -136,7 +135,7 @@ export default function ActualPasswordGen() {
           </div>
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="font-semibold my-1">
+              <label className="text-white font-semibold my-1">
                 Include uppercase letters
               </label>
             </div>
@@ -149,7 +148,7 @@ export default function ActualPasswordGen() {
           </div>
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="font-semibold my-1">
+              <label className="text-white font-semibold my-1">
                 Include lowercase letters
               </label>
             </div>
@@ -162,7 +161,7 @@ export default function ActualPasswordGen() {
           </div>
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="font-semibold my-1">Include numbers</label>
+              <label className="text-white font-semibold my-1">Include numbers</label>
             </div>
             <div>
               <Checkbox
@@ -173,7 +172,7 @@ export default function ActualPasswordGen() {
           </div>
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="font-semibold my-1">Include symbols</label>
+              <label className="text-white font-semibold my-1">Include symbols</label>
             </div>
             <div>
               <Checkbox

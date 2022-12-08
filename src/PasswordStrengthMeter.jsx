@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import zxcvbn from "zxcvbn";
 
 const PasswordStrengthMeter = ({ password1 }) => {
   const testResult = zxcvbn(password1);
-  console.log(testResult);
   const num = testResult.score;
 
   const createPassLabel = () => {
@@ -44,15 +43,15 @@ const PasswordStrengthMeter = ({ password1 }) => {
     <>
       <div className="text-white">
         <div className="mb-2">
-          <div class="w-full h-2 bg-gray-400 rounded-full mt-3">
+          <div className="w-full h-2 bg-gray-400 rounded-full mt-3">
             <div
-              class={`w-${
-                num == 0 ? 1 : num
+              className={`w-${
+                num === 0 ? 1 : num
               }/4 h-full text-center text-xs text-white bg-${funcProgressColor()}-600 rounded-full`}
             ></div>
           </div>
         </div>
-        <div className={` text-${funcProgressColor()}-600 `}>
+        <div className={`text-${funcProgressColor()}-600`}>
           {createPassLabel()}
         </div>
       </div>
