@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import Checkbox from "./Checkbox";
 
 export default function ActualPasswordGen() {
-  //
+  let [isOpen, setIsOpen] = useState(false);
 
   const [passwordGen, setPasswordGen] = useState({
     length: 5,
@@ -43,6 +44,9 @@ export default function ActualPasswordGen() {
   };
 
   const setPasswordLength = (val) => {
+    if (val < 10) {
+      setIsOpen(!isOpen);
+    }
     setPasswordGen({
       ...passwordGen,
       length: val,
@@ -85,12 +89,41 @@ export default function ActualPasswordGen() {
     generateTheWord(length, uppercase, lowercase, numbers, symbols);
   }
 
-
   return (
     <>
-      {/* <div className="text-white">ActualPasswordGen</div>; */}
       <div className="wrapper">
         <div className="container wrapper-box p-4 lg:p-8 mx-auto bg-gray-700 rounded-xl">
+          {/* Popup dialogue box */}
+          {/* <div className=" sticky top-0"> */}
+          <Transition show={isOpen} as={Fragment}>
+            <Dialog
+              className="fixed top-10 left-1/4 z-2"
+              onClose={() => setIsOpen(false)}
+            >
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel>
+                  <div>
+                    <div className="p-2 rounded-xl w-[800px] bg-black text-white">
+                      <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+                        Close
+                      </div>
+                      It is better to have a password with atleast length of 10
+                      characters.
+                    </div>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </Dialog>
+          </Transition>
+          {/* </div> */}
           {/* <h2>Password Generator</h2> */}
           <div className="password-box drop-shadow-lg">
             <input
@@ -120,7 +153,9 @@ export default function ActualPasswordGen() {
           <br />
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="text-white font-semibold mr-4">Password length</label>
+              <label className="text-white font-semibold mr-4">
+                Password length
+              </label>
             </div>
             <div>
               <input
@@ -161,7 +196,9 @@ export default function ActualPasswordGen() {
           </div>
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="text-white font-semibold my-1">Include numbers</label>
+              <label className="text-white font-semibold my-1">
+                Include numbers
+              </label>
             </div>
             <div>
               <Checkbox
@@ -172,7 +209,9 @@ export default function ActualPasswordGen() {
           </div>
           <div className="flex mx-auto my-1 justify-center text-center  text-lg word-crieteria__box">
             <div>
-              <label className="text-white font-semibold my-1">Include symbols</label>
+              <label className="text-white font-semibold my-1">
+                Include symbols
+              </label>
             </div>
             <div>
               <Checkbox
@@ -183,7 +222,7 @@ export default function ActualPasswordGen() {
           </div>
           <div>
             <button
-              className="generate-button my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
+              className="generate-button font-semibold my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
               onClick={() => {
                 navigator.vibrate(50);
                 generatePassword();
@@ -194,7 +233,6 @@ export default function ActualPasswordGen() {
           </div>
         </div>
       </div>
-      {/* // */}
     </>
   );
 }
