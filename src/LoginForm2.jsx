@@ -43,7 +43,6 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
 
   return (
     <>
-      {/* <Router> */}
       {/* Old Section */}
       <section className="bg-gray-200 min-h-screen p-6 items-center w-screen">
         <div className="flex flex-col mx-auto justify-center lg:flex-row xl:flex-row">
@@ -131,7 +130,7 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
                     <p className="my-auto">Don't have an account?</p>
                     <button
                       type="button"
-                      className="bg-red-600 border-2 border-red-600 py-2 px-4 rounded-lg text-white hover:text-red-600 hover:bg-white"
+                      className="bg-red-600 transition ease-in border-2 border-red-600 py-2 px-4 rounded-lg text-white hover:text-red-600 hover:bg-white"
                       onClick={() => {
                         navigator.vibrate(50);
                         Signup.setSignUpstate("true");
@@ -144,7 +143,6 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
               </form>
             </div>
           </div>
-          {/* <div className="bg-orange-600 p-5"> */}
           <div className="rounded-r-lg flex lg:w-[50%] xl:w-[50%] max-w-2xl items-center bg-gradient-to-r from-[#ee7724] via-red-600 to-[#b44593]">
             <div className="text-white my-auto px-16 py-40">
               <div className="inline-block">
@@ -158,10 +156,8 @@ export default function LoginForm2({ password, name, login, Signup, admin }) {
               </div>
             </div>
           </div>
-          {/* </div> */}
         </div>
       </section>
-      {/* </Router> */}
     </>
   );
 }

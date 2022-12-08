@@ -102,7 +102,7 @@ export default function ActualPasswordGen() {
               onChange={(e) => setHandelText(e.target.value)}
             />
             <button
-              className="copy-button mx-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
+              className="font-semibold copy-button mx-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
               onClick={() => {
                 navigator.vibrate(50);
                 if (handelText.length > 0) {

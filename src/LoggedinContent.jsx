@@ -267,10 +267,10 @@ export default function Login({ username }) {
                           <path d="M912 1696q0-16-16-16-59 0-101.5-42.5t-42.5-101.5q0-16-16-16t-16 16q0 73 51.5 124.5t124.5 51.5q16 0 16-16zm816-288q0 52-38 90t-90 38h-448q0 106-75 181t-181 75-181-75-75-181h-448q-52 0-90-38t-38-90q50-42 91-88t85-119.5 74.5-158.5 50-206 19.5-260q0-152 117-282.5t307-158.5q-8-19-8-39 0-40 28-68t68-28 68 28 28 68q0 20-8 39 190 28 307 158.5t117 282.5q0 139 19.5 260t50 206 74.5 158.5 85 119.5 91 88z"></path>
                         </svg>
                       </motion.button>
-                      <button className="flex py-2 px-3 items-center font-bold rounded-lg bg-green-600 shadow text-white hover:text-green-800 text-md">
+                      <button className="flex transition ease-in py-2 px-3 items-center font-bold rounded-lg bg-green-600 shadow text-white hover:text-green-800 text-md">
                         {premium}
                       </button>
-                      <span className="w-1 h-8 rounded-lg bg-gray-200"></span>
+                      {/* <span className="w-1 h-8 rounded-lg bg-gray-200"></span> */}
                       {/* <a href="#" className="block relative">
                       <img
                         alt="profil"
@@ -283,7 +283,7 @@ export default function Login({ username }) {
                         <div>
                           <button
                             type="button"
-                            className=" border border-gray-300 bg-gray-800 shadow-sm flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-50 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500"
+                            className=" border transition ease-in border-gray-300 bg-gray-800 shadow-sm flex items-center justify-center w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-50 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500"
                             id="options-menu"
                             onClick={() => {
                               navigator.vibrate(50);
@@ -586,7 +586,7 @@ export default function Login({ username }) {
                     <div className="w-full md:w-6/12">
                       <div className="shadow-lg w-full rounded-xl bg-gray-700 relative overflow-hidden">
                         <a href="#" className="w-full h-full block">
-                          <div className="flex items-center bg-purple-600 hover:bg-purple-700 rounded-xl justify-between px-4 py-6 space-x-4">
+                          <div className="flex items-center transition ease-in bg-purple-600 hover:bg-purple-700 rounded-xl justify-between px-4 py-6 space-x-4">
                             <div className="flex items-center rounded-xl">
                               <p
                                 onClick={() => {
@@ -733,7 +733,7 @@ export default function Login({ username }) {
                             setData();
                             navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
                           }}
-                          className="bg-orange-600 font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
+                          className="bg-orange-600 transition ease-in font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
                         >
                           Add
                         </button>

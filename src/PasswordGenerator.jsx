@@ -20,7 +20,7 @@ export default function PasswordGenerator({ username }) {
   return (
     <>
       <div
-        className={`${generator_visibility} ml-4 pr-4 h-[75vh] overflow-y-scroll`}
+        className={`${generator_visibility} ml-4 pr-4 h-[85vh] overflow-y-scroll`}
       >
         {/* <div className=" overflow-auto h-[1000px]"> */}
         <div className="">
@@ -29,7 +29,7 @@ export default function PasswordGenerator({ username }) {
               Generate strong and random passwords
             </div>
           </div>
-          <div className="text-center my-5 md:mx-40 text-white font-bold mx-auto">
+          <div className="text-center my-5 max-w-[500px] text-white font-bold mx-auto">
             Upgrade the security of your online accounts - create strong
             passwords that are completely random and impossible to guess. Select
             the length of your new password, choose what symbols to include and
@@ -49,7 +49,7 @@ export default function PasswordGenerator({ username }) {
         } text-white text-3xl`}
       >
         <div className="text-red-600 my-2">Oops !</div>
-        This feature is available only for premium members
+        This feature is available only for premium members.
       </div>
     </>
   );
