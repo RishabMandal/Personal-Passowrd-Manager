@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import deleteicon from "./delete.png";
 import { motion } from "framer-motion";
@@ -6,6 +7,7 @@ import { motion } from "framer-motion";
 export default function Dashboard({
   username,
   eventData,
+  seteventData,
   removeTodo,
   setnotice2,
   setdate2,
@@ -17,11 +19,12 @@ export default function Dashboard({
     current.getMonth() + 1
   }/${current.getFullYear()}`;
 
+  // Dialogue box / Alert
+  let [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      <div
-        className={`overflow-auto h-screen pb-24 px-4 md:px-6`}
-      >
+      <div className={`overflow-auto h-screen pb-24 px-4 md:px-6`}>
         <h1 className="text-4xl mt-8 font-semibold text-white">
           Welcome back, {username}
         </h1>
@@ -92,21 +95,84 @@ export default function Dashboard({
           </div>
         </div>
 
-        <div className="flex items-center space-x-4">
-          <button className="flex items-center text-gray-400 text-md border-gray-300 border px-4 py-2 rounded-tl-sm rounded-bl-full rounded-r-full">
-            Recently added
-            <motion.svg
-              width="20"
-              height="20"
-              className="ml-2 text-gray-400"
-              fill="currentColor"
-              viewBox="0 0 1792 1792"
-              xmlns="http://www.w3.org/2000/svg"
+        {/* Popup dialogue box */}
+
+        <Transition show={isOpen} as={Fragment}>
+          <Dialog
+            className="fixed top-20 md:left-1/4 xl:left-1/4 z-20 mx-4"
+            onClose={() => setIsOpen(false)}
+          >
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
             >
-              <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path>
-            </motion.svg>
-          </button>
+              <Dialog.Panel>
+                <div>
+                  <div className="rounded-xl max-w-[700px] bg-gray-200 text-white">
+                    <div className="bg-red-200 rounded-xl p-2">
+                      <div className="flex space-x-2 p-2">
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-6 h-6 stroke-red-700"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                            />
+                          </svg>
+                        </div>
+                        <div className="text-red-700 font-bold">
+                          Are you sure you want to delete all the saved
+                          passwords?
+                        </div>
+                      </div>
+                      <div className="text-red-700 ml-10 mr-2 mb-2">
+                        Doing so will permanently delete the passwords stored.
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <button
+                        className="mx-4 my-4 text-black"
+                        onClick={() => setIsOpen(!isOpen)}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => {
+                          seteventData([]);
+                          setIsOpen(!isOpen);
+                        }}
+                        className="mx-4 mr-4 font-semibold text-red-700"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </Dialog>
+        </Transition>
+
+        <div className="flex items-center space-x-4">
           <span className="text-gray-400">Today's date : {date}</span>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="ml-auto font-semibold text-white px-3 py-1 rounded-xl bg-purple-700 border-4 border-purple-600 hover:text-purple-600 hover:bg-transparent"
+          >
+            Delete all passwords
+          </button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
           {eventData.map((eventData1, index) => {

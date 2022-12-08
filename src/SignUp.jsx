@@ -51,7 +51,7 @@ export default function SignUp({ admin, Signup }) {
                       <div className="form-outline mb-4">
                         <input
                           type="name"
-                          className="form-control p-2 rounded-md drop-shadow-md "
+                          className="form-control text-blue-700 p-2 rounded-md drop-shadow-md "
                           placeholder="First Name"
                           onChange={(e) => {
                             setNameDetails(e.target.value);
@@ -63,8 +63,8 @@ export default function SignUp({ admin, Signup }) {
                       <div className="form-outline mb-4">
                         <input
                           type="name"
-                          className="form-control p-2 rounded-md drop-shadow-md"
-                          placeholder="Last Name"
+                          className="form-control text-blue-700 p-2 rounded-md drop-shadow-md"
+                          placeholder="Last Name (Optional)"
                           onChange={(e) => {
                             // setNameDetails(e.target.value);
                           }}
@@ -78,8 +78,8 @@ export default function SignUp({ admin, Signup }) {
                     <input
                       type="email"
                       id="form3Example3"
-                      className="form-control p-2 rounded-md drop-shadow-md "
-                      placeholder="Email address"
+                      className="form-control text-blue-700 p-2 rounded-md drop-shadow-md "
+                      placeholder="Email address (Optional)"
                     />
                   </div>
 
@@ -88,8 +88,8 @@ export default function SignUp({ admin, Signup }) {
                     <input
                       type="password"
                       id="form2Example2"
-                      className="form-control p-2 rounded-md drop-shadow-md "
-                      placeholder="Password"
+                      className="form-control text-blue-700 p-2 rounded-md drop-shadow-md "
+                      placeholder="Master Password"
                       onChange={(e) => {
                         setPasswordDetails(e.target.value);
                       }}

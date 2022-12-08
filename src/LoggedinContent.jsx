@@ -576,6 +576,7 @@ export default function Login({ username }) {
                         <Dashboard
                           username={username}
                           eventData={eventData}
+                          seteventData={seteventData}
                           removeTodo={removeTodo}
                           setnotice2={setnotice2}
                           setdate2={setdate2}
