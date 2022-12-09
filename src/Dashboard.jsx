@@ -4,6 +4,7 @@ import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import deleteicon from "./delete.png";
 import { motion } from "framer-motion";
 import { CompromisedPasswords } from "./WeakPasswordList";
+import { decrypt } from "n-krypta";
 
 export default function Dashboard({
   username,
@@ -14,6 +15,7 @@ export default function Dashboard({
   date2,
   setdate2,
   setData,
+  secretKey
 }) {
   //Date
   const current = new Date();
@@ -23,8 +25,6 @@ export default function Dashboard({
 
   // Dialogue box / Alert
   let [isOpen, setIsOpen] = useState(false);
-
-  // Copy text
 
   // Check if password is compromised
   let [isOpen2, setIsOpen2] = useState(false);
@@ -218,7 +218,9 @@ export default function Dashboard({
                         This password has been seen many times before
                       </div>
                       <div className="text-white text-sm ml-10 mr-2 mb-2">
-                      This password has previously appeared in a data breach and should never be used. If you've ever used it anywhere before, change it!
+                        This password has previously appeared in a data breach
+                        and should never be used. If you've ever used it
+                        anywhere before, change it!
                       </div>
                     </div>
                     <div className="flex justify-end">
@@ -249,6 +251,7 @@ export default function Dashboard({
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
           {eventData.map((eventData1, index) => {
+            const decryptData = decrypt(eventData1.date, secretKey);
             return (
               <div key={index} className="w-full">
                 <div className="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
@@ -291,11 +294,12 @@ export default function Dashboard({
                   </div>
                   <div className="flex items-end px-1 space-x-2 my-6">
                     <p className="text-4xl text-white font-bold">
-                      {eventData1.date}
+                      {decryptData}
                     </p>
                   </div>
 
-                  <PasswordStrengthMeter password1={eventData1.date} />
+                  <PasswordStrengthMeter password1={decryptData} />
+                  {/* decryptData is eventData1.date but decrypted */}
                 </div>
               </div>
             );
@@ -315,7 +319,6 @@ export default function Dashboard({
                   }}
                 />
               </p>
-              {/* <div className="flex items-end space-x-2 mt-3 mb-6"> */}
               <p className="text-xl mt-3 mb-6 text-black">
                 <input
                   onClick={() => {
@@ -329,7 +332,6 @@ export default function Dashboard({
                   }}
                 />
               </p>
-              {/* </div> */}
               <button
                 onClick={() => {
                   checkPassword(date2);

@@ -18,8 +18,12 @@ import {
 import Dashboard from "./Dashboard";
 import { NavLink } from "react-router-dom/dist";
 import Feedback from "./Feedback";
+import { encrypt } from "n-krypta";
 
 export default function Login({ username }) {
+  // Encrypt
+  const secretKey = "PersonalPass";
+
   // Popover
   const [popover_visibility, setpopover_visibility] = useState("hidden");
 
@@ -35,7 +39,9 @@ export default function Login({ username }) {
     if (notice2 === "" || date2 === "") {
       return;
     }
-    seteventData([...eventData, { notice: notice2, date: date2 }]);
+    const encryptData = encrypt(date2, secretKey);
+    seteventData([...eventData, { notice: notice2, date: encryptData }]);
+    // seteventData([...eventData, { notice: notice2, date: date2 }]);
     // localStorage.setItem("LOCAL", JSON.stringify(eventData));
   }
 
@@ -583,6 +589,7 @@ export default function Login({ username }) {
                           date2={date2}
                           setdate2={setdate2}
                           setData={setData}
+                          secretKey={secretKey}
                         />
                       }
                     />
