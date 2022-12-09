@@ -94,10 +94,10 @@ export default function ActualPasswordGen() {
       <div className="wrapper">
         <div className="container wrapper-box p-4 lg:p-8 mx-auto bg-gray-700 rounded-xl">
           {/* Popup dialogue box */}
-          {/* <div className=" sticky top-0"> */}
+
           <Transition show={isOpen} as={Fragment}>
             <Dialog
-              className="fixed top-10 left-1/4 z-2"
+              className="fixed top-20 md:left-1/4 xl:left-1/4 z-20 mx-4"
               onClose={() => setIsOpen(false)}
             >
               <Transition.Child
@@ -111,12 +111,44 @@ export default function ActualPasswordGen() {
               >
                 <Dialog.Panel>
                   <div>
-                    <div className="p-2 rounded-xl w-[800px] bg-black text-white">
-                      <div className="cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-                        Close
+                    <div className="rounded-xl max-w-[700px] bg-gray-200 text-white">
+                      <div className="bg-red-700 rounded-xl p-2">
+                        <div className="flex space-x-2 p-2">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-8 h-8 stroke-white mt-1"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                              />
+                            </svg>
+                          </div>
+                          <div className="text-white text-3xl font-bold">
+                            Password too short !
+                          </div>
+                        </div>
+                        <div className="text-white font-semibold text-xl ml-10 mr-2 mb-2">
+                          It is recommended that the password length must be
+                          atleast of 10 characters.
+                        </div>
                       </div>
-                      It is better to have a password with atleast length of 10
-                      characters.
+                      <div className="flex justify-end">
+                        <button
+                          onClick={() => {
+                            setIsOpen(!isOpen);
+                          }}
+                          className="mx-4 mr-4 my-2 font-semibold text-red-600 hover:text-red-700"
+                        >
+                          Ok I got it
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </Dialog.Panel>

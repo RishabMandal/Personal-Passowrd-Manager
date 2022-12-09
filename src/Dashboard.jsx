@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import deleteicon from "./delete.png";
 import { motion } from "framer-motion";
+import { CompromisedPasswords } from "./WeakPasswordList";
 
 export default function Dashboard({
   username,
@@ -10,6 +11,7 @@ export default function Dashboard({
   seteventData,
   removeTodo,
   setnotice2,
+  date2,
   setdate2,
   setData,
 }) {
@@ -22,10 +24,20 @@ export default function Dashboard({
   // Dialogue box / Alert
   let [isOpen, setIsOpen] = useState(false);
 
+  // Copy text
+
+  // Check if password is compromised
+  let [isOpen2, setIsOpen2] = useState(false);
+  function checkPassword(checkpassword) {
+    if (CompromisedPasswords.includes(checkpassword)) {
+      setIsOpen2(!isOpen2);
+    }
+  }
+
   return (
     <div>
       <div className={`overflow-auto h-screen pb-24 px-4 md:px-6`}>
-        <h1 className="text-4xl mt-8 font-semibold text-white">
+        <h1 className="text-4xl mt-8 font-bold text-white">
           Welcome back, {username}
         </h1>
         <h2 className="text-md mt-2 text-gray-400">
@@ -47,10 +59,6 @@ export default function Dashboard({
                     </p>
                   </div>
                 </div>
-                {/* <div className="w-full h-3 bg-gray-100">
-                                    <div className="w-2/5 h-full text-center text-xs text-white bg-green-400">
-                                    </div>
-                                </div> */}
               </a>
             </div>
           </div>
@@ -95,7 +103,7 @@ export default function Dashboard({
           </div>
         </div>
 
-        {/* Popup dialogue box */}
+        {/* Popup dialogue box for deleting all passwords */}
 
         <Transition show={isOpen} as={Fragment}>
           <Dialog
@@ -165,11 +173,76 @@ export default function Dashboard({
           </Dialog>
         </Transition>
 
+        {/* Popup dialogue box for checking compromised passwords */}
+
+        <Transition show={isOpen2} as={Fragment}>
+          <Dialog
+            className="fixed top-20 md:left-1/4 xl:left-1/4 z-20 mx-4"
+            onClose={() => setIsOpen2(false)}
+          >
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Panel>
+                <div>
+                  <div className="rounded-xl max-w-[700px] bg-gray-200 text-white">
+                    <div className="bg-red-700 rounded-xl p-2">
+                      <div className="flex space-x-2 p-2">
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-8 h-8 stroke-white mt-1"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                            />
+                          </svg>
+                        </div>
+                        <div className="text-white text-3xl font-bold">
+                          Oh no -- Compromised !
+                        </div>
+                      </div>
+                      <div className="text-white font-semibold text-xl ml-10 mr-2 mb-2">
+                        This password has been seen many times before
+                      </div>
+                      <div className="text-white text-sm ml-10 mr-2 mb-2">
+                      This password has previously appeared in a data breach and should never be used. If you've ever used it anywhere before, change it!
+                      </div>
+                    </div>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => {
+                          setIsOpen2(!isOpen2);
+                        }}
+                        className="mx-4 mr-4 my-2 font-semibold text-red-600 hover:text-red-700"
+                      >
+                        Ok I got it
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </Dialog>
+        </Transition>
+
         <div className="flex items-center space-x-4">
           <span className="text-gray-400">Today's date : {date}</span>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="ml-auto font-semibold text-white px-3 py-1 rounded-xl bg-purple-700 border-4 border-purple-600 hover:text-purple-600 hover:bg-transparent"
+            className="ml-auto transition ease-in font-semibold text-white px-3 py-1 rounded-xl bg-purple-700 border-4 border-purple-600 hover:text-purple-600 hover:bg-transparent"
           >
             Delete all passwords
           </button>
@@ -193,6 +266,28 @@ export default function Dashboard({
                       className="w-[35px] mx-2 cursor-pointer"
                       alt=""
                     />
+                    <motion.svg
+                      whileHover={{ scale: 1.2 }}
+                      onClick={() => {
+                        navigator.vibrate(50);
+                        if (eventData1.date.length > 0) {
+                          navigator.clipboard.writeText(eventData1.date);
+                        }
+                        navigator.vibrate([75, 10, 10, 75]);
+                      }}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2.0}
+                      stroke="currentColor"
+                      className="w-[36px] mr-2 cursor-pointer"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
+                      />
+                    </motion.svg>
                   </div>
                   <div className="flex items-end px-1 space-x-2 my-6">
                     <p className="text-4xl text-white font-bold">
@@ -237,6 +332,7 @@ export default function Dashboard({
               {/* </div> */}
               <button
                 onClick={() => {
+                  checkPassword(date2);
                   setData();
                   navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
                 }}

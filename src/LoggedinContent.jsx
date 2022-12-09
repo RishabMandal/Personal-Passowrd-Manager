@@ -17,6 +17,7 @@ import {
 } from "firebase/firestore";
 import Dashboard from "./Dashboard";
 import { NavLink } from "react-router-dom/dist";
+import Feedback from "./Feedback";
 
 export default function Login({ username }) {
   // Popover
@@ -203,9 +204,9 @@ export default function Login({ username }) {
                             Labs (Coming soon)
                           </span>
                         </a>
-                        <a
+                        <NavLink
                           className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
-                          href="#"
+                          to="/feedback"
                         >
                           <span className="text-left">
                             <svg
@@ -219,9 +220,9 @@ export default function Login({ username }) {
                             </svg>
                           </span>
                           <span className="mx-2 text-sm font-normal">
-                            Feedback (Coming Soon)
+                            Feedback (BETA)
                           </span>
-                        </a>
+                        </NavLink>
                       </div>
                     </nav>
                   </div>
@@ -579,6 +580,7 @@ export default function Login({ username }) {
                           seteventData={seteventData}
                           removeTodo={removeTodo}
                           setnotice2={setnotice2}
+                          date2={date2}
                           setdate2={setdate2}
                           setData={setData}
                         />
@@ -588,6 +590,11 @@ export default function Login({ username }) {
                     <Route
                       path="/generator"
                       element={<PasswordGenerator premium={premium} />}
+                    />
+                    {/* // Feedback  */}
+                    <Route
+                      path="/feedback"
+                      element={<Feedback premium={premium} />}
                     />
                   </Routes>
                 </div>
