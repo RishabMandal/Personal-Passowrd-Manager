@@ -10,7 +10,6 @@ export default function () {
     password: localStorage.getItem("Password"),
   });
 
-  // const [User, setUser] = useState({ name: "", password: "" });
   const [name, setname] = useState("");
   const [password, setpassword] = useState("");
   const [Login, setLogin] = useState("false");
@@ -27,9 +26,6 @@ export default function () {
     <>
       <div>
         <div>
-          {/* {name === Admin.name &&
-          password === Admin.password &&
-          Login === "true" ? ( */}
           {(name === Admin.name &&
           password === Admin.password &&
           Login === "true")||(localStorage.getItem("username")) ? (
@@ -116,7 +112,6 @@ export default function () {
                   password={{ password, setpassword }}
                   name={{ name, setname }}
                   login={{ Login, setLogin }}
-                  // Signup={{ SignUpstate, setSignUpstate }}
                   admin={{ Admin, setAdmin }}
                 />
               </div>

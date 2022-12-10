@@ -30,7 +30,7 @@ export default function PasswordGenerator({ premium }) {
       ) : (
         <div className={`text-white text-3xl`}>
           <div className="text-red-600 my-2">Oops !</div>
-          This feature is available only for premium members.
+          This feature is available only for our premium members.
         </div>
       )}
     </>

@@ -19,6 +19,7 @@ import Dashboard from "./Dashboard";
 import { NavLink } from "react-router-dom/dist";
 import Feedback from "./Feedback";
 import { encrypt } from "n-krypta";
+import Labs from "./Labs";
 
 export default function Login({ username }) {
   // Encrypt
@@ -119,6 +120,31 @@ export default function Login({ username }) {
     });
   }
 
+  // Password facts state
+  const [facts, setFacts] = useState(false);
+
+  // Lockdown mode state
+  const [lockdown, setLockdown] = useState(false);
+
+  //
+  const data = window.localStorage.getItem("Lockdown");
+  useEffect(() => {
+    if (data !== null) setLockdown(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("Lockdown", JSON.stringify(lockdown));
+  }, [lockdown]);
+
+  const data2 = window.localStorage.getItem("Facts");
+  useEffect(() => {
+    if (data2 !== null) setFacts(JSON.parse(data2));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("Facts", JSON.stringify(facts));
+  }, [facts]);
+
   return (
     <>
       <div>
@@ -167,7 +193,7 @@ export default function Login({ username }) {
                             Dashboard
                           </span>
                         </NavLink>
-                        <Link
+                        <NavLink
                           to="/generator"
                           className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
                         >
@@ -190,10 +216,10 @@ export default function Login({ username }) {
                           >
                             Password Generator
                           </span>
-                        </Link>
-                        <a
+                        </NavLink>
+                        <NavLink
                           className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
-                          href="#"
+                          to="/labs"
                         >
                           <span className="text-left">
                             <svg
@@ -206,10 +232,8 @@ export default function Login({ username }) {
                               <path d="M1728 608v704q0 92-66 158t-158 66h-1216q-92 0-158-66t-66-158v-960q0-92 66-158t158-66h320q92 0 158 66t66 158v32h672q92 0 158 66t66 158z"></path>
                             </svg>
                           </span>
-                          <span className="mx-2 text-sm font-normal">
-                            Labs (Coming soon)
-                          </span>
-                        </a>
+                          <span className="mx-2 text-sm font-normal">Labs</span>
+                        </NavLink>
                         <NavLink
                           className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
                           to="/feedback"
@@ -438,7 +462,7 @@ export default function Login({ username }) {
                                 </Link>
                               </li>
                               <li className="rounded-sm">
-                                <Link
+                                <NavLink
                                   to="/generator"
                                   onClick={() => {
                                     navigator.vibrate(50);
@@ -462,11 +486,11 @@ export default function Login({ username }) {
                                   <span className="text-gray-100">
                                     Password Generator (BETA)
                                   </span>
-                                </Link>
+                                </NavLink>
                               </li>
                               <li className="rounded-sm">
-                                <a
-                                  href="#"
+                                <NavLink
+                                  to="/labs"
                                   className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                   <svg
@@ -484,7 +508,7 @@ export default function Login({ username }) {
                                     />
                                   </svg>
                                   <span className="text-gray-100">Labs</span>
-                                </a>
+                                </NavLink>
                               </li>
                               <li className="rounded-sm">
                                 <a
@@ -516,8 +540,8 @@ export default function Login({ username }) {
                                 </a>
                               </li>
                               <li className="rounded-sm">
-                                <a
-                                  href="#"
+                                <NavLink
+                                  to="/feedback"
                                   className="flex items-center p-2 space-x-3 rounded-md"
                                 >
                                   <svg
@@ -537,7 +561,7 @@ export default function Login({ username }) {
                                   <span className="text-gray-100">
                                     Feedback
                                   </span>
-                                </a>
+                                </NavLink>
                               </li>
                               <li className="rounded-sm">
                                 <a
@@ -590,6 +614,10 @@ export default function Login({ username }) {
                           setdate2={setdate2}
                           setData={setData}
                           secretKey={secretKey}
+                          facts={facts}
+                          lockdown={lockdown}
+                          setLockdown={setLockdown}
+                          premium={premium}
                         />
                       }
                     />
@@ -597,6 +625,19 @@ export default function Login({ username }) {
                     <Route
                       path="/generator"
                       element={<PasswordGenerator premium={premium} />}
+                    />
+                    {/* // Labs  */}
+                    <Route
+                      path="/labs"
+                      element={
+                        <Labs
+                          premium={premium}
+                          facts={facts}
+                          setFacts={setFacts}
+                          lockdown={lockdown}
+                          setLockdown={setLockdown}
+                        />
+                      }
                     />
                     {/* // Feedback  */}
                     <Route

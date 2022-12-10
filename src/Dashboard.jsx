@@ -1,10 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import deleteicon from "./delete.png";
 import { motion } from "framer-motion";
 import { CompromisedPasswords } from "./WeakPasswordList";
 import { decrypt } from "n-krypta";
+import { passwordfacts } from "./PasswordFacts";
+import { NavLink } from "react-router-dom/dist";
+import PINLock from "./PINLock";
 
 export default function Dashboard({
   username,
@@ -15,7 +18,11 @@ export default function Dashboard({
   date2,
   setdate2,
   setData,
-  secretKey
+  secretKey,
+  facts,
+  lockdown,
+  setLockdown,
+  premium,
 }) {
   //Date
   const current = new Date();
@@ -34,6 +41,9 @@ export default function Dashboard({
     }
   }
 
+  // Secure PIN at the start
+  const [PIN_state, setPIN_state] = useState(true);
+
   return (
     <div>
       <div className={`overflow-auto h-screen pb-24 px-4 md:px-6`}>
@@ -43,23 +53,27 @@ export default function Dashboard({
         <h2 className="text-md mt-2 text-gray-400">
           View and Manage your passwords
         </h2>
+        {facts && (
+          <div className="text-white text-lg my-2 font-semibold">
+            Your daily Password fact:
+            {" " + passwordfacts[Math.floor(Math.random() * (18 - 0 + 1) + 0)]}
+          </div>
+        )}
         <div className="flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row">
           <div className="w-full md:w-6/12">
             <div className="shadow-lg w-full rounded-xl bg-gray-700 relative overflow-hidden">
-              <a href="#" className="w-full h-full block">
+              <NavLink to="/generator" className="w-full h-full block">
                 <div className="flex items-center transition ease-in bg-purple-600 hover:bg-purple-700 rounded-xl justify-between px-4 py-6 space-x-4">
-                  <div className="flex items-center rounded-xl">
-                    <p
-                      onClick={() => {
-                        navigator.vibrate(50);
-                      }}
-                      className="text-xl text-white ml-2 font-semibold"
-                    >
-                      Generate new password
-                    </p>
-                  </div>
+                  <p
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
+                    className="text-xl text-white ml-2 font-semibold"
+                  >
+                    Generate new password
+                  </p>
                 </div>
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="flex items-center w-full md:w-1/2 space-x-4">
@@ -243,108 +257,132 @@ export default function Dashboard({
         <div className="flex items-center space-x-4">
           <span className="text-gray-400">Today's date : {date}</span>
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              navigator.vibrate(50);
+              setIsOpen(!isOpen);
+            }}
             className="ml-auto transition ease-in font-semibold text-white px-3 py-1 rounded-xl bg-purple-700 border-4 border-purple-600 hover:text-purple-600 hover:bg-transparent"
           >
             Delete all passwords
           </button>
+          {lockdown && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.0}
+              stroke="currentColor"
+              className="w-6 h-6 stroke-white cursor-pointer"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+              />
+            </svg>
+          )}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
-          {eventData.map((eventData1, index) => {
-            const decryptData = decrypt(eventData1.date, secretKey);
-            return (
-              <div key={index} className="w-full">
-                <div className="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
-                  <div className="flex">
-                    <p className="text-xl w-max text-white font-semibold border-b border-gray-200">
-                      {eventData1.notice}
-                    </p>
-                    <motion.img
-                      whileHover={{ rotate: 180 }}
-                      onClick={() => {
-                        removeTodo(index);
-                        navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
-                      }}
-                      src={deleteicon}
-                      className="w-[35px] mx-2 cursor-pointer"
-                      alt=""
-                    />
-                    <motion.svg
-                      whileHover={{ scale: 1.2 }}
-                      onClick={() => {
-                        navigator.vibrate(50);
-                        if (eventData1.date.length > 0) {
-                          navigator.clipboard.writeText(eventData1.date);
-                        }
-                        navigator.vibrate([75, 10, 10, 75]);
-                      }}
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2.0}
-                      stroke="currentColor"
-                      className="w-[36px] mr-2 cursor-pointer"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
+        {premium === "PREMIUM" && (
+          <PINLock PIN_state={PIN_state} setPIN_state={setPIN_state} />
+        )}
+        {(premium !== "PREMIUM" || !PIN_state) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
+            {eventData.map((eventData1, index) => {
+              const decryptData = decrypt(eventData1.date, secretKey);
+              return (
+                <div key={index} className="w-full">
+                  <div className="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
+                    <div className="flex">
+                      <p className="text-xl w-max text-white font-semibold border-b border-gray-200">
+                        {eventData1.notice}
+                      </p>
+                      <motion.img
+                        whileHover={{ rotate: 180 }}
+                        onClick={() => {
+                          removeTodo(index);
+                          navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
+                        }}
+                        src={deleteicon}
+                        className="w-[35px] mx-2 cursor-pointer"
+                        alt=""
                       />
-                    </motion.svg>
-                  </div>
-                  <div className="flex items-end px-1 space-x-2 my-6">
-                    <p className="text-4xl text-white font-bold">
-                      {decryptData}
-                    </p>
-                  </div>
+                      <motion.svg
+                        whileHover={{ scale: 1.2 }}
+                        onClick={() => {
+                          navigator.vibrate(50);
+                          if (eventData1.date.length > 0) {
+                            navigator.clipboard.writeText(decryptData);
+                          }
+                          navigator.vibrate([75, 10, 10, 75]);
+                        }}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={2.0}
+                        stroke="currentColor"
+                        className="w-[36px] mr-2 cursor-pointer"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"
+                        />
+                      </motion.svg>
+                    </div>
+                    <div className="flex items-end px-1 space-x-2 my-6">
+                      <p className="text-4xl text-white font-bold">
+                        {decryptData}
+                      </p>
+                    </div>
 
-                  <PasswordStrengthMeter password1={decryptData} />
-                  {/* decryptData is eventData1.date but decrypted */}
+                    <PasswordStrengthMeter password1={decryptData} />
+                    {/* decryptData is eventData1.date but decrypted */}
+                  </div>
                 </div>
+              );
+            })}
+            <div className="w-full">
+              <div className="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
+                <p className="text-xl text-black">
+                  <input
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
+                    className="w-11/12 bg-gray-200 rounded-lg p-2"
+                    placeholder="Account identifier"
+                    type="text"
+                    onChange={(event) => {
+                      setnotice2(event.target.value);
+                    }}
+                  />
+                </p>
+                <p className="text-xl mt-3 mb-6 text-black">
+                  <input
+                    onClick={() => {
+                      navigator.vibrate(50);
+                    }}
+                    className="w-11/12 bg-gray-200 rounded-lg p-2"
+                    placeholder="Password"
+                    type="text"
+                    onChange={(event) => {
+                      setdate2(event.target.value);
+                    }}
+                  />
+                </p>
+                <button
+                  onClick={() => {
+                    checkPassword(date2);
+                    setData();
+                    navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
+                  }}
+                  className="bg-orange-600 transition ease-in font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
+                >
+                  Add
+                </button>
               </div>
-            );
-          })}
-          <div className="w-full">
-            <div className="shadow-lg rounded-xl px-4 py-6 w-full bg-gray-700 relative">
-              <p className="text-xl text-black">
-                <input
-                  onClick={() => {
-                    navigator.vibrate(50);
-                  }}
-                  className="w-11/12 bg-gray-200 rounded-lg p-2"
-                  placeholder="Account identifier"
-                  type="text"
-                  onChange={(event) => {
-                    setnotice2(event.target.value);
-                  }}
-                />
-              </p>
-              <p className="text-xl mt-3 mb-6 text-black">
-                <input
-                  onClick={() => {
-                    navigator.vibrate(50);
-                  }}
-                  className="w-11/12 bg-gray-200 rounded-lg p-2"
-                  placeholder="Password"
-                  type="text"
-                  onChange={(event) => {
-                    setdate2(event.target.value);
-                  }}
-                />
-              </p>
-              <button
-                onClick={() => {
-                  checkPassword(date2);
-                  setData();
-                  navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
-                }}
-                className="bg-orange-600 transition ease-in font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
-              >
-                Add
-              </button>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

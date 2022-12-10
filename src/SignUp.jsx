@@ -46,7 +46,7 @@ export default function SignUp({ admin, Signup }) {
                 </h2>
                 <form>
                   {/* <!-- 2 column grid layout with text inputs for the first and last names --> */}
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-md-6 mb-4">
                       <div className="form-outline mb-4">
                         <input
@@ -71,20 +71,20 @@ export default function SignUp({ admin, Signup }) {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* <!-- Email input --> */}
-                  <div className="form-outline mb-4">
+                  {/* <div className="form-outline mb-4">
                     <input
                       type="email"
                       id="form3Example3"
                       className="form-control text-blue-700 p-2 rounded-md drop-shadow-md "
                       placeholder="Email address (Optional)"
                     />
-                  </div>
+                  </div> */}
 
                   {/* <!-- Password input --> */}
-                  <div className="form-outline mb-4">
+                  {/* <div className="form-outline mb-4">
                     <input
                       type="password"
                       id="form2Example2"
@@ -94,12 +94,12 @@ export default function SignUp({ admin, Signup }) {
                         setPasswordDetails(e.target.value);
                       }}
                     />
-                  </div>
+                  </div> */}
 
                   {/* <!-- Checkbox --> */}
-                  <div className="form-check d-flex justify-content-center mb-4">
+                  <div className="form-check flex justify-center mb-4">
                     <input
-                      className="form-check-input me-2 mr-2"
+                      className="form-check-input w-4 h-4 mt-1 mr-2"
                       type="checkbox"
                       value=""
                       id="form2Example33"
@@ -116,7 +116,7 @@ export default function SignUp({ admin, Signup }) {
                   </div>
 
                   {/* <!-- Submit button --> */}
-                  <button
+                  {/* <button
                     type="button"
                     className="bg-red-600 hover:bg-red-700 transition ease-in rounded-lg px-3 pt-1 pb-2 text-white mb-4"
                     // onClick={settolocal}
@@ -127,11 +127,12 @@ export default function SignUp({ admin, Signup }) {
                     }}
                   >
                     Sign Up
-                  </button>
+                  </button> */}
 
                   {/* <!-- Register buttons --> */}
                   <div className="text-center">
-                    <p>or sign up with :</p>
+                    {/* <p>or sign up with :</p> */}
+                    <p>Sign up with :</p>
 
                     <button
                       // onClick={() => {
