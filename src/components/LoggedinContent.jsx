@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import PasswordGenerator from "./PasswordGenerator";
-import logo from "./Logo1.png";
-import deleteicon from "./delete.png";
-import PasswordStrengthMeter from "./PasswordStrengthMeter";
+import logo from "../assets/Logo1.png";
 import { motion } from "framer-motion";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import {
-  addDoc,
-  collection,
-  getDocs,
+  // addDoc,
+  // collection,
+  // getDocs,
   doc,
   updateDoc,
   setDoc,
@@ -20,6 +18,7 @@ import { NavLink } from "react-router-dom/dist";
 import Feedback from "./Feedback";
 import { encrypt } from "n-krypta";
 import Labs from "./Labs";
+import VoiceAssistant from "./VoiceAssistant";
 
 export default function Login({ username }) {
   // Encrypt
@@ -29,9 +28,10 @@ export default function Login({ username }) {
   const [popover_visibility, setpopover_visibility] = useState("hidden");
 
   // New Data
-  const [eventData, seteventData] = useState([
-    // { notice: "Trip-1", date: "15th Oct" },
-  ]);
+  // const [eventData, seteventData] = useState([
+  //   // { notice: "Trip-1", date: "15th Oct" },
+  // ]);
+  const [eventData, seteventData] = useState();
 
   const [notice2, setnotice2] = useState("");
   const [date2, setdate2] = useState("");
@@ -53,7 +53,11 @@ export default function Login({ username }) {
   // }, []);
 
   useEffect(() => {
-    localStorage.setItem("LOCAL", JSON.stringify(eventData));
+    if (eventData) {
+      if (eventData.length !== 0) {
+        localStorage.setItem("LOCAL", JSON.stringify(eventData));
+      }
+    }
   }, [eventData]);
 
   // Premium
@@ -64,6 +68,7 @@ export default function Login({ username }) {
       username === "360 Rishab" ||
       username === "Rishab Mandal" ||
       username === "Krish" ||
+      username === "MP R" ||
       username === "Vivaan" ||
       username === "Arnav"
     ) {
@@ -93,9 +98,9 @@ export default function Login({ username }) {
 
   // Read from db
   useEffect(() => {
-    if (eventData.length === 0) {
-      // Add();
-    }
+    // if (eventData.length === 0) {
+    // Add();
+    // }
     see();
   }, []);
 
@@ -108,7 +113,7 @@ export default function Login({ username }) {
   }
 
   useEffect(() => {
-    if (eventData !== [] && eventData.length !== 0) {
+    if (eventData !== []  && eventData) {
       update();
     }
   }, [eventData]);
@@ -145,6 +150,8 @@ export default function Login({ username }) {
     window.localStorage.setItem("Facts", JSON.stringify(facts));
   }, [facts]);
 
+  const UserContext = createContext();
+
   return (
     <>
       <div>
@@ -161,16 +168,14 @@ export default function Login({ username }) {
                         alt=""
                       />
                     </div>
-                    <nav className="mt-6">
+                    <div className="mt-6">
                       <div>
                         <NavLink
                           to="/"
                           // className="w-full text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start border-l-4 border-purple-500"
-                          className={(isActive) =>
+                          className={({ isActive }) =>
                             "w-full text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start " +
-                            (isActive
-                              ? "border-l-4 border-purple-500"
-                              : "bg-black")
+                            (isActive ? "border-l-4 border-purple-500" : "")
                           }
                         >
                           <span className="text-left">
@@ -195,7 +200,11 @@ export default function Login({ username }) {
                         </NavLink>
                         <NavLink
                           to="/generator"
-                          className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
+                          // className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
+                          className={({ isActive }) =>
+                            "w-full text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start " +
+                            (isActive ? "border-l-4 border-purple-500" : "")
+                          }
                         >
                           <span className="text-left">
                             <svg
@@ -218,7 +227,10 @@ export default function Login({ username }) {
                           </span>
                         </NavLink>
                         <NavLink
-                          className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
+                          className={({ isActive }) =>
+                            "w-full text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start " +
+                            (isActive ? "border-l-4 border-purple-500" : "")
+                          }
                           to="/labs"
                         >
                           <span className="text-left">
@@ -235,7 +247,10 @@ export default function Login({ username }) {
                           <span className="mx-2 text-sm font-normal">Labs</span>
                         </NavLink>
                         <NavLink
-                          className="w-full text-gray-400 flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start hover:text-gray-800 border-l-4 border-transparent"
+                          className={({ isActive }) =>
+                            "w-full text-white flex items-center pl-6 p-2 my-2 transition-colors duration-200 justify-start " +
+                            (isActive ? "border-l-4 border-purple-500" : "")
+                          }
                           to="/feedback"
                         >
                           <span className="text-left">
@@ -254,7 +269,7 @@ export default function Login({ username }) {
                           </span>
                         </NavLink>
                       </div>
-                    </nav>
+                    </div>
                   </div>
                 </div>
                 <div className="flex flex-col w-full md:space-y-4">
@@ -296,7 +311,6 @@ export default function Login({ username }) {
                         <button className="flex transition ease-in py-2 px-3 items-center font-bold rounded-lg bg-green-600 shadow text-white hover:text-green-800 text-md">
                           {premium}
                         </button>
-                        {/* <span className="w-1 h-8 rounded-lg bg-gray-200"></span> */}
                         {/* <a href="#" className="block relative">
                       <img
                         alt="profil"
@@ -342,17 +356,15 @@ export default function Login({ username }) {
                               aria-orientation="vertical"
                               aria-labelledby="options-menu"
                             >
-                              <a
-                                href="#"
+                              <div
                                 className="block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900 text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
                                 role="menuitem"
                               >
                                 <span className="flex flex-col">
                                   <span>{username}</span>
                                 </span>
-                              </a>
-                              <a
-                                href="#"
+                              </div>
+                              <div
                                 className="block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900 text-gray-100 dark:hover:text-white dark:hover:bg-gray-600"
                                 role="menuitem"
                               >
@@ -366,7 +378,7 @@ export default function Login({ username }) {
                                     Logout
                                   </span>
                                 </span>
-                              </a>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -546,7 +558,7 @@ export default function Login({ username }) {
                                 </NavLink>
                               </li>
                               <li className="rounded-sm">
-                                <a
+                                <div
                                   onClick={() => {
                                     navigator.vibrate(50);
                                     localStorage.removeItem("username");
@@ -569,7 +581,7 @@ export default function Login({ username }) {
                                     />
                                   </svg>
                                   <span className="text-gray-100">Logout</span>
-                                </a>
+                                </div>
                               </li>
                             </ul>
                           </div>
@@ -618,6 +630,7 @@ export default function Login({ username }) {
                           setFacts={setFacts}
                           lockdown={lockdown}
                           setLockdown={setLockdown}
+                          // UserContext={UserContext}
                         />
                       }
                     />
@@ -628,6 +641,20 @@ export default function Login({ username }) {
                     />
                   </Routes>
                 </div>
+
+                {/* // Voice assistant  */}
+                {premium === "PREMIUM" && (
+                  <VoiceAssistant
+                    UserContext={UserContext}
+                    username={username}
+                    facts={facts}
+                    setFacts={setFacts}
+                    lockdown={lockdown}
+                    setLockdown={setLockdown}
+                    eventData={eventData}
+                    seteventData={seteventData}
+                  />
+                )}
               </div>
             </main>
           </div>

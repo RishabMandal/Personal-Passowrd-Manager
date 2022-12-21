@@ -1,11 +1,11 @@
 import React from "react";
-import premiumcrown from "./crown.png";
-import backgroundimg from "./backgroundimg.png";
-import Passgenerator from "./Passgenerator.svg";
-import accessanywhere from "./accessanywhere.png";
-import safety from "./safety.svg";
+import premiumcrown from "../assets/crown.png";
+import backgroundimg from "../assets/backgroundimg.png";
+import Passgenerator from "../assets/Passgenerator.svg";
+import accessanywhere from "../assets/accessanywhere.png";
+import safety from "../assets/safety.svg";
 import { motion } from "framer-motion";
-import logo from "./Logo1.png";
+import logo from "../assets/Logo1.png";
 
 export default function ManagerPage1({ myRef, executeScroll }) {
   return (
@@ -522,6 +522,38 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                     </span>
                     Detect weak, reused passwords
                   </p>
+                  <p className="flex items-center text-gray-600 mb-2">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        className="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Double encryption for stored passwords
+                  </p>
+                  <p className="flex items-center text-gray-600 mb-2">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        className="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Extra secured PIN option
+                  </p>
                   <p className="flex items-center text-gray-600 mb-6">
                     <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
                       <svg
@@ -634,6 +666,38 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                       </svg>
                     </span>
                     Detect weak, reused passwords
+                  </p>
+                  <p className="flex items-center text-gray-600 mb-2">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        className="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Double encryption for stored passwords
+                  </p>
+                  <p className="flex items-center text-gray-600 mb-2">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        className="w-3 h-3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M20 6L9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                    Extra secured PIN option
                   </p>
                   <p className="flex items-center text-gray-600 mb-6">
                     <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">

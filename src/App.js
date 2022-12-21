@@ -1,10 +1,15 @@
-import './App.css';
-import Header from './Header';
+import "./App.css";
+import Header from "./components/Header";
+// For API query fetch
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
+  // const client = new QueryClient();
   return (
     <div className="App">
-      <Header/>
+      {/* <QueryClientProvider client={client}> */}
+        <Header />
+      {/* </QueryClientProvider> */}
     </div>
   );
 }

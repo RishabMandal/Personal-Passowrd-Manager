@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import BelowHeader from "./BelowHeader";
 import LoggedinContent from "./LoggedinContent";
 import LoginForm from "./LoginForm";
-import logo from "./Logo1.png";
+import logo from "../assets/Logo1.png";
 
 export default function () {
   const [Admin, setAdmin] = useState({
@@ -26,11 +26,15 @@ export default function () {
     <>
       <div>
         <div>
-          {(name === Admin.name &&
-          password === Admin.password &&
-          Login === "true")||(localStorage.getItem("username")) ? (
+          {/* {(name === Admin.name &&
+            password === Admin.password &&
+            Login === "true") ||
+          localStorage.getItem("username") ? ( */}
+          {localStorage.getItem("username") ? (
             <>
-              <LoggedinContent username={Admin.name||(localStorage.getItem("username"))} />
+              <LoggedinContent
+                username={Admin.name || localStorage.getItem("username")}
+              />
             </>
           ) : (
             <>
