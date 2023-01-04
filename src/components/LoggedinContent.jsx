@@ -19,6 +19,7 @@ import Feedback from "./Feedback";
 import { encrypt } from "n-krypta";
 import Labs from "./Labs";
 import VoiceAssistant from "./VoiceAssistant";
+import Error from "./Error";
 
 export default function Login({ username }) {
   // Encrypt
@@ -638,6 +639,10 @@ export default function Login({ username }) {
                     <Route
                       path="/feedback"
                       element={<Feedback premium={premium} />}
+                    />
+                    <Route
+                      path="*"
+                      element={<Error />}
                     />
                   </Routes>
                 </div>

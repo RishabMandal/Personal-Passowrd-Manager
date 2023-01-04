@@ -25,7 +25,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
             <p className="mb-8 leading-relaxed">
               Store passwords in a single place and log in to your favorite
               websites and apps with a click. With the PersonalPass, access your
-              login credentials on any device, even when you’re offline.
+              login credentials on any device.
             </p>
             <div className="flex justify-center">
               <button
@@ -104,8 +104,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                 <p className="leading-relaxed text-base">
                   There are situations in life when you need your passwords here
                   and now. That’s why PersonalPass is created to always be at
-                  hand. Use it on desktop, mobile, browser, or even when you’re
-                  offline.
+                  hand. Use it on desktop, mobile or browser.
                 </p>
               </div>
             </motion.div>
@@ -737,116 +736,6 @@ export default function ManagerPage1({ myRef, executeScroll }) {
                   <p className="text-xs text-gray-500 mt-3">Try now !</p>
                 </div>
               </div>
-              {/* <div className="p-4 xl:w-1/3 md:w-1/2 w-full">
-                <div className="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
-                  <h2 className="text-sm tracking-widest title-font mb-1 font-medium">
-                    SPECIAL
-                  </h2>
-                  <h1 className="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
-                    <span>$72</span>
-                    <span className="text-lg ml-1 font-normal text-gray-500">
-                      /mo
-                    </span>
-                  </h1>
-                  <p className="flex items-center text-gray-600 mb-2">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    30-day money-back guarantee
-                  </p>
-                  <p className="flex items-center text-gray-600 mb-2">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    1 Premium user account
-                  </p>
-                  <p className="flex items-center text-gray-600 mb-2">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    Detect weak, reused passwords
-                  </p>
-                  <p className="flex items-center text-gray-600 mb-2">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    30-day money-back guarantee
-                  </p>
-                  <p className="flex items-center text-gray-600 mb-6">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    Securely store passwords
-                  </p>
-                  <button className="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded-lg">
-                    Button
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      className="w-4 h-4 ml-auto"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                  <p className="text-xs text-gray-500 mt-3">
-                    Try now !
-                  </p>
-                </div>
-              </div> */}
             </div>
           </div>
         </section>
@@ -877,7 +766,7 @@ export default function ManagerPage1({ myRef, executeScroll }) {
               support@personalpass.com
             </a>
           </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <span className="inline-flex cursor-pointer sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a className="text-gray-500">
               <svg
                 fill="currentColor"

@@ -20,7 +20,7 @@ export default function Labs({
               Experimental Features
             </div>
             <div className="">
-              <div className="flex text-white mx-4 my-4">
+              <div className="flex text-white mx-4 mt-8 mb-4">
                 Double encryption for all the stored passwords
                 <Checkbox value={true} />
               </div>

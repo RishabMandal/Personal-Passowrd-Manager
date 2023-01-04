@@ -358,7 +358,7 @@ export default function Dashboard({
               strokeWidth={2.0}
               stroke="currentColor"
               onClick={setIsOpen3}
-              className="w-6 h-6 stroke-white cursor-pointer"
+              className="w-6 h-6 stroke-white hover:stroke-green-600 cursor-pointer"
             >
               <path
                 strokeLinecap="round"
@@ -390,7 +390,7 @@ export default function Dashboard({
                             navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
                           }}
                           src={deleteicon}
-                          className="w-[35px] mx-2 cursor-pointer"
+                          className="w-[35px] h-[39px] mx-2 cursor-pointer"
                           alt=""
                         />
                         <motion.svg
@@ -407,7 +407,7 @@ export default function Dashboard({
                           viewBox="0 0 24 24"
                           strokeWidth={2.0}
                           stroke="currentColor"
-                          className="w-[36px] mr-2 cursor-pointer"
+                          className="w-[36px] h-[40px] mr-2 cursor-pointer"
                         >
                           <path
                             strokeLinecap="round"

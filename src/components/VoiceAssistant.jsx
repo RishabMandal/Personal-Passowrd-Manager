@@ -194,7 +194,7 @@ export default function VoiceAssistant({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-8 h-8 text-blue-500 border border-blue-500 bg-gray-800 hover:bg-blue-500 rounded-full p-1 hover:text-white"
+              className="w-8 h-8 text-blue-500 border border-blue-500 bg-gray-800 transition ease-in hover:bg-blue-500 rounded-full p-1 hover:text-white"
             >
               <path
                 strokeLinecap="round"

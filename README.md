@@ -1,3 +1,3 @@
-# Save your passwords with PersonalPass
+# PersonalPass is a password manager that helps users securely store and manage their login credentials for various online accounts. With PersonalPass, users can create strong, unique passwords for each of their accounts and have the password manager automatically log them in to those accounts whenever they need to access them. PersonalPass also has features like two-factor authentication and encrypted storage to further protect users' login information. Additionally, PersonalPass makes it easy for users to update their passwords and manage their account security by providing alerts for potential security issues and offering suggestions for creating stronger passwords. Overall, PersonalPass is a convenient and secure solution for managing login credentials and keeping online accounts protected.
 
 
