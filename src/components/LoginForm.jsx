@@ -1,14 +1,6 @@
 import SignUp from "./SignUp";
 import LoginForm2 from "./LoginForm2";
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from "react-router-dom";
 
 export default function LoginForm({ password, name, login, admin }) {
   // const [nameDetails, setnameDetails] = useState("Name");

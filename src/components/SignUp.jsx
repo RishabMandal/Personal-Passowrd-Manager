@@ -13,11 +13,11 @@ export default function SignUp({ admin, Signup }) {
 
   // Google sign in
   const [useremail, setuseremail] = useState();
-  
+
   function handlesignin() {
     signInWithPopup(auth, provider).then((data) => {
       setuseremail(data.user.email);
-      
+
       localStorage.setItem("email", data.user.email);
       localStorage.setItem("username", data.user.displayName);
       window.location.reload();
@@ -28,16 +28,7 @@ export default function SignUp({ admin, Signup }) {
     <>
       {/* <!-- Section: Design Block --> */}
       <section className="text-center min-h-[89vh] bg-[#eee]">
-
-        <div
-          className="min-h-[89vh] p-2 text-white bg-[url('https://mdbootstrap.com/img/new/textures/full/171.jpg')] card shadow-5-strong backdrop-blur-[30px]"
-          style={
-            {
-              // margin-top: -100px;
-              // background: hsla(0, 0%, 100%, 0.8);
-            }
-          }
-        >
+        <div className="min-h-[89vh] p-2 text-white bg-[url('https://mdbootstrap.com/img/new/textures/full/171.jpg')] card shadow-5-strong backdrop-blur-[30px]">
           <div className="rounded-xl card-body m-2 bg-white bg-opacity-25 backdrop-filter backdrop-blur-lg py-5 px-md-5">
             <div className="row d-flex justify-content-center">
               <div className="col-lg-8">

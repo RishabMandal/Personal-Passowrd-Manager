@@ -10,7 +10,6 @@ import logo from "../assets/Logo1.png";
 export default function ManagerPage1({ myRef, executeScroll }) {
   return (
     <>
-      {/* <div className="bg-red-700">ManagerPage1</div> */}
       {/* Navbar  */}
 
       {/* Upper Part */}
