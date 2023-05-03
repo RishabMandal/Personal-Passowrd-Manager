@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import 'regenerator-runtime/runtime'
 // For API query fetch
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 

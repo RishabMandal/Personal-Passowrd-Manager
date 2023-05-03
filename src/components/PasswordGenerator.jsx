@@ -6,7 +6,6 @@ export default function PasswordGenerator({ premium }) {
     <>
       {premium === "PREMIUM" ? (
         <div className={`ml-4 pr-4 h-[85vh] overflow-y-scroll`}>
-          {/* <div className=" overflow-auto h-[1000px]"> */}
           <div className="">
             <div>
               <div className="text-center my-5 text-4xl text-white font-bold mx-auto">

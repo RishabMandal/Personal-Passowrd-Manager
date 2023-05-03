@@ -11,7 +11,7 @@ export default function Error() {
       </div>
       <NavLink
         to="/"
-        className="text-white hover:text-green-600 hover:border-green-600 border-2 rounded-lg px-3 py-2"
+        className="text-white transition ease-in font-semibold hover:text-green-600 hover:border-green-600 border-2 rounded-lg px-3 py-2"
       >
         Back to Dashboard
       </NavLink>

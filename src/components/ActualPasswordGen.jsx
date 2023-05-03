@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Checkbox from "./Checkbox";
+import { useNavigate } from "react-router-dom";
 
 export default function ActualPasswordGen() {
   let [isOpen, setIsOpen] = useState(false);
@@ -88,6 +89,8 @@ export default function ActualPasswordGen() {
 
     generateTheWord(length, uppercase, lowercase, numbers, symbols);
   }
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -254,13 +257,23 @@ export default function ActualPasswordGen() {
           </div>
           <div>
             <button
-              className="generate-button transition ease-in font-semibold my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
+              className="block mx-auto generate-button transition ease-in font-semibold my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
               onClick={() => {
                 navigator.vibrate(50);
                 generatePassword();
               }}
             >
               Generate password
+            </button>
+            <button
+              className="block mx-auto generate-button transition ease-in font-semibold my-4 text-white bg-purple-600 drop-shadow-lg hover:bg-purple-700 px-3 py-2 rounded-lg"
+              onClick={() => {
+                navigator.vibrate(50);
+                // generatePassword();
+                navigate("/passwordimage");
+              }}
+            >
+              Generate password using an Image
             </button>
           </div>
         </div>

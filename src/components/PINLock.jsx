@@ -48,7 +48,7 @@ export default function PINLock({ PIN_state, setPIN_state }) {
                 />
               </div>
               <button
-                className="bg-orange-600 transition ease-in font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 my-1 text-white"
+                className="bg-orange-600 transition ease-in font-semibold border-4 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 my-1 text-white"
                 onClick={setPIN}
               >
                 Set PIN
@@ -66,7 +66,7 @@ export default function PINLock({ PIN_state, setPIN_state }) {
                 />
               </div>
               <button
-                className="bg-orange-600 transition ease-in font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 my-1 text-white"
+                className="bg-orange-600 transition ease-in font-semibold border-4 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 my-1 text-white"
                 onClick={handleSubmit}
               >
                 Unlock

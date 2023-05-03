@@ -436,7 +436,7 @@ export default function Dashboard({
                     onClick={() => {
                       navigator.vibrate(50);
                     }}
-                    className="w-11/12 bg-gray-200 rounded-lg p-2"
+                    className="w-11/12 text-orange-600 bg-gray-200 rounded-lg p-2"
                     placeholder="Account identifier"
                     type="text"
                     onChange={(event) => {
@@ -450,7 +450,7 @@ export default function Dashboard({
                     onClick={() => {
                       navigator.vibrate(50);
                     }}
-                    className="w-11/12 bg-gray-200 rounded-lg p-2"
+                    className="w-11/12 text-orange-600 bg-gray-200 rounded-lg p-2"
                     placeholder="Password"
                     type="text"
                     onChange={(event) => {
@@ -466,7 +466,7 @@ export default function Dashboard({
                     inputref2.current.value = "";
                     navigator.vibrate([75, 10, 10, 75, 10, 10, 75]);
                   }}
-                  className="bg-orange-600 transition ease-in font-semibold border-2 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
+                  className="bg-orange-600 transition ease-in font-semibold border-4 border-orange-600 hover:bg-gray-700 hover:text-orange-600 rounded-lg px-3 py-2 text-white"
                 >
                   Add
                 </button>

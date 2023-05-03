@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
 import PasswordGenerator from "./PasswordGenerator";
 import logo from "../assets/Logo1.png";
+import logovideo from "../assets/logo2.mp4";
 import { motion } from "framer-motion";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { db } from "../firebase";
@@ -18,8 +19,10 @@ import { NavLink } from "react-router-dom/dist";
 import Feedback from "./Feedback";
 import { encrypt } from "n-krypta";
 import Labs from "./Labs";
-import VoiceAssistant from "./VoiceAssistant";
+// import VoiceAssistant from "./VoiceAssistant";
 import Error from "./Error";
+import HoverVideoPlayer from "react-hover-video-player";
+import PasswordFromImage from "./PasswordFromImage";
 
 export default function Login({ username }) {
   // Encrypt
@@ -90,7 +93,7 @@ export default function Login({ username }) {
   // Firebase
 
   async function Add() {
-    if (username) {
+    if (username && eventData) {
       const docRef = await setDoc(doc(db, `Account`, `${username}`), {
         eventData: eventData,
       });
@@ -114,7 +117,7 @@ export default function Login({ username }) {
   }
 
   useEffect(() => {
-    if (eventData !== []  && eventData) {
+    if (eventData !== [] && eventData) {
       update();
     }
   }, [eventData]);
@@ -163,10 +166,32 @@ export default function Login({ username }) {
                 <div className="h-screen hidden lg:block shadow-lg relative w-80">
                   <div className="h-full bg-gray-700">
                     <div className="flex items-center justify-start pt-6">
-                      <img
+                      {/* <img
                         src={logo}
                         className="rounded-lg w-48 mx-auto"
                         alt=""
+                      /> */}
+                      <HoverVideoPlayer
+                        className="rounded-lg w-48 mx-auto object-cover"
+                        // videoSrc="../assets/logo.mp4"
+                        videoSrc={logovideo}
+                        pausedOverlay={
+                          <img
+                            src={logo}
+                            alt=""
+                            style={{
+                              // Make the image expand to cover the video's dimensions
+                              // width: "100%",
+                              // height: "100%",
+                              // objectFit: "cover",
+                            }}
+                            className="object-contain w-full rounded-lg"
+                          />
+                        }
+                        hoverOverlay={
+                          <div className="hover-overlay">
+                          </div>
+                        }
                       />
                     </div>
                     <div className="mt-6">
@@ -641,14 +666,15 @@ export default function Login({ username }) {
                       element={<Feedback premium={premium} />}
                     />
                     <Route
-                      path="*"
-                      element={<Error />}
+                      path="/passwordimage"
+                      element={<PasswordFromImage />}
                     />
+                    <Route path="*" element={<Error />} />
                   </Routes>
                 </div>
 
                 {/* // Voice assistant  */}
-                {premium === "PREMIUM" && (
+                {/* {premium === "PREMIUM" && (
                   <VoiceAssistant
                     UserContext={UserContext}
                     username={username}
@@ -659,7 +685,7 @@ export default function Login({ username }) {
                     eventData={eventData}
                     seteventData={seteventData}
                   />
-                )}
+                )} */}
               </div>
             </main>
           </div>
